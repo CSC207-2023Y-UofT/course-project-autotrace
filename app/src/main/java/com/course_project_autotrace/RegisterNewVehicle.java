@@ -5,21 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
-public class MainActivity extends AppCompatActivity {
+public class RegisterNewVehicle extends AppCompatActivity {
 
-    private Button move;
-
+    private ImageButton backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        move = findViewById(R.id.Move);
-        move.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_register_new_vehicle);
+        backBtn = findViewById(R.id.BackBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RegisterNewVehicle.class);
+                Intent intent = new Intent(RegisterNewVehicle.this, MainActivity.class);
                 startActivity(intent);
             }
         });
