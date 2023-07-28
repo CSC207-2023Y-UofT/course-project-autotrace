@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">course-project-autotrace</string>
+    <string name="register_your_vehicle">Register Your Vehicle</string>
+    <string name="dd_mm_yy">DD/MM/YY</string>
+    <string name="enter_your_license_plate">Enter your License Plate</string>
+    <string name="enter_your_last_name">Enter your Last Name</string>
+    <string name="register_vehicle">Register Vehicle</string>
+    <string name="logo">Logo</string>
+    <string name="enter_your_date_of_birth">Enter your Date of Birth</string>
+    <string name="profile_screen">Profile Screen</string>
+    <string name="home_buttom">Home Buttom</string>
+    <string name="car_info_screen">Car Info Screen</string>
+    <string name="traffic_violation_tab">Traffic Violation Tab</string>
+    <string name="back_button">Back Button</string>
+    <string name="enter_license_plate_number">Enter License Plate Number</string>
+    <string name="todo">TODO</string>
+    <string name="move_to_register_vehicle">Move to Register Vehicle</string>
 </resources>
