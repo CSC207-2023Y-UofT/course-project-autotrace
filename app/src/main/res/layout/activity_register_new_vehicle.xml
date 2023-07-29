@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.326" />
 
     <EditText
-        android:id="@+id/editLicensePlate"
+        android:id="@+id/LicensePlate"
         android:layout_width="363dp"
         android:layout_height="56dp"
         android:background="@drawable/roundedrectangle"
@@ -68,11 +68,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLicensePlate"
+        app:layout_constraintTop_toBottomOf="@+id/LicensePlate"
         app:layout_constraintVertical_bias="0.023" />
 
     <EditText
-        android:id="@+id/editLastName"
+        android:id="@+id/LastName"
         android:layout_width="362dp"
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
@@ -112,7 +112,7 @@
         app:layout_constraintVertical_bias="0.611" />
 
     <EditText
-        android:id="@+id/editDOB"
+        android:id="@+id/DOB"
         android:layout_width="356dp"
         android:layout_height="58dp"
         android:autofillHints=""
@@ -133,7 +133,7 @@
         app:layout_constraintVertical_bias="0.689" />
 
     <Button
-        android:id="@+id/registerBtn"
+        android:id="@+id/RegisterBtn"
         android:layout_width="212dp"
         android:layout_height="60dp"
         android:layout_marginTop="124dp"

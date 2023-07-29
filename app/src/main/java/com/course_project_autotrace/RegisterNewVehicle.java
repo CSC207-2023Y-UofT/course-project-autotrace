@@ -4,23 +4,38 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class RegisterNewVehicle extends AppCompatActivity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-    private ImageButton backBtn;
+public class RegisterNewVehicle extends AppCompatActivity {
+    private DatabaseReference mDatabase;
+    private Button registerVehicleBtn;
+    private EditText licensePlate, lastName, DOB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_new_vehicle);
-        backBtn = findViewById(R.id.BackBtn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegisterNewVehicle.this, MainActivity.class);
-                startActivity(intent);
-            }
+        ImageButton backBtn = findViewById(R.id.BackBtn);
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterNewVehicle.this, MainActivity.class);
+            startActivity(intent);
         });
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users").child("1");
+
+        registerVehicleBtn = findViewById(R.id.RegisterBtn);
+        licensePlate = findViewById(R.id.LicensePlate);
+        lastName = findViewById(R.id.LastName);
+        DOB = findViewById(R.id.DOB);
+
+        // Writing Data to Firebase
+
+        registerVehicleBtn.setOnClickListener(v -> mDatabase.setValue(lastName.getText().toString()));
+
     }
+
 }

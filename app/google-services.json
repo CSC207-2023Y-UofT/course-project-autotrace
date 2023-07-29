@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "353054306725",
+    "firebase_url": "https://course-project-autotrace-default-rtdb.firebaseio.com",
+    "project_id": "course-project-autotrace",
+    "storage_bucket": "course-project-autotrace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353054306725:android:ef92f19023d09a7816384c",
+        "android_client_info": {
+          "package_name": "com.course_project_autotrace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353054306725-t8g5qgks14r3d41u42v75ovbaiop27p6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.course_project_autotrace",
+            "certificate_hash": "e1f6a2b201e73d6d8f12d837bf3749f44a4300cc"
+          }
+        },
+        {
+          "client_id": "353054306725-0l4hib72v46sue0o2ie14f2hj2vo67rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfxsy-fWY3U_HNim1Y81WdR--IWdDl2K8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353054306725-0l4hib72v46sue0o2ie14f2hj2vo67rf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
