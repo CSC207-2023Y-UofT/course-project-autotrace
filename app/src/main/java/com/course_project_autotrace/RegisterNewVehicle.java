@@ -22,9 +22,16 @@ public class RegisterNewVehicle extends AppCompatActivity {
         setContentView(R.layout.activity_register_new_vehicle);
         ImageButton backBtn = findViewById(R.id.BackBtn);
         backBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(RegisterNewVehicle.this, MainActivity.class);
+            Intent intent = new Intent(RegisterNewVehicle.this, HomeScreen.class);
             startActivity(intent);
         });
+        ImageButton homeBtn = findViewById(R.id.HomeBtn);
+        homeBtn.setOnClickListener(v -> {
+            Intent intent2 = new Intent(RegisterNewVehicle.this, HomeScreen.class);
+            startActivity(intent2);
+        });
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child("1");
 
         registerVehicleBtn = findViewById(R.id.RegisterBtn);

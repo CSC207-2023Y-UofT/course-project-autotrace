@@ -15,4 +15,16 @@
     <string name="enter_license_plate_number">Enter License Plate Number</string>
     <string name="todo">TODO</string>
     <string name="move_to_register_vehicle">Move to Register Vehicle</string>
+    <string name="home">Home</string>
+    <string name="tesla_model_3">Tesla Model 3</string>
+    <string name="_2022">2022</string>
+    <string name="midsize_suv">Midsize SUV</string>
+    <string name="toyota_rav_4">Toyota Rav 4</string>
+    <string name="electric_sedan">Electric Sedan</string>
+    <string name="add_vehicle_button">Add Vehicle Button</string>
+    <string name="car_image">Car Image</string>
+    <string name="basic_car_information">Basic Car Information</string>
+    <string name="model_year">Model Year</string>
+    <string name="name">Name</string>
+    <string name="car_information">Car Information</string>
 </resources>
