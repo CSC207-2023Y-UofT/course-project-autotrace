@@ -104,7 +104,6 @@
         android:text="@string/enter_your_date_of_birth"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,7 +192,7 @@
         android:contentDescription="@string/todo" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/HomeBtn"
         android:layout_width="60dp"
         android:layout_height="61dp"
         android:background="@android:color/transparent"
