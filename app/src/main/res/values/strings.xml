@@ -27,4 +27,12 @@
     <string name="model_year">Model Year</string>
     <string name="name">Name</string>
     <string name="car_information">Car Information</string>
+    <string name="or">OR</string>
+    <string name="log_into_your_account">Log into your account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="access_basic_car_info">Access basic car info</string>
+    <string name="enter_license_plate">Enter License Plate</string>
+    <string name="forgot_password">Forgot Password</string>
 </resources>
