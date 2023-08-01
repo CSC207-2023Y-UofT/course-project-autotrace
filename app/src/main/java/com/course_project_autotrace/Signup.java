@@ -25,8 +25,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class Signup extends AppCompatActivity {
+public class Signup extends AppCompatActivity{
 
 
 
@@ -34,7 +35,8 @@ public class Signup extends AppCompatActivity {
     private DatabaseReference mDatabaseRef; //실시간 데이터 베이스.
     private EditText mEtEmail; //버튼들 사용가능하게만들
     private EditText mEtPwd;
-    private Button mBtnsignup; //밑에꺼대신씀.
+   // private Button mBtnsignup; //밑에꺼대신씀.
+    private Button mbtnSignupContinue;
 
     TextView textViewSignUp = findViewById(R.id.textView7);//diler put sigup button as text.
 
@@ -44,30 +46,31 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_password);
+        mbtnSignupContinue = findViewById(R.id.SignupContinue);
 
-        mBtnsignup.setOnClickListener(new View.OnClickListener() {
 
 
+        mbtnSignupContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // will do sign up activity
-                String strEmail = mEtEmail.getText().toString();
-                String strPwd = mEtPwd.getText().toString();
+                String strEmail = mEtEmail.getText().toString(); //입력 장치
+                String strPwd = mEtPwd.getText().toString(); //입려장치
+                mFirebaseAuth = FirebaseAuth.getInstance();
+                //Firebase auth ongo
+                //mDatabaseRef - FirebaseDatabase.getInstance().getReference();
                 //Firebase Auth 진행
                 mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
-                            UserAccount account = new UserAccount();
+                            UserAccount account = new UserAccount(); //객체 생성.
                             account.setIDToken(firebaseUser.getUid());
                             account.setEmailId(firebaseUser.getEmail());
                             account.setPassword(strPwd);
-
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
                             Toast.makeText(Signup.this, "signup Successfull", Toast.LENGTH_SHORT).show();
-
-
                         }
                         else{
                             Toast.makeText(Signup.this, "signup failed", Toast.LENGTH_SHORT).show();
@@ -76,9 +79,5 @@ public class Signup extends AppCompatActivity {
                 });
             }
         });
-
-
-
-
     }
 }

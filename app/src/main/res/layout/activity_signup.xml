@@ -95,7 +95,7 @@
 
 
     <Button
-        android:id="@+id/buttonContinue1"
+        android:id="@+id/SignupContinue"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
