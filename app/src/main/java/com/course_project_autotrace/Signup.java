@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,20 +35,24 @@ public class Signup extends AppCompatActivity{
     private FirebaseAuth mFirebaseAuth; //firebase인증
     private DatabaseReference mDatabaseRef; //실시간 데이터 베이스.
     private EditText mEtEmail; //버튼들 사용가능하게만들
+
+
+    private ImageButton button;
     private EditText mEtPwd;
    // private Button mBtnsignup; //밑에꺼대신씀.
     private Button mbtnSignupContinue;
 
-    TextView textViewSignUp = findViewById(R.id.textView7);//diler put sigup button as text.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(); // Initialize mDatabaseRef
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_password);
         mbtnSignupContinue = findViewById(R.id.SignupContinue);
-
 
 
         mbtnSignupContinue.setOnClickListener(new View.OnClickListener() {
@@ -73,11 +78,13 @@ public class Signup extends AppCompatActivity{
                             Toast.makeText(Signup.this, "signup Successfull", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(Signup.this, "signup failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signup.this, "signup failed2", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
+
+
     }
 }
