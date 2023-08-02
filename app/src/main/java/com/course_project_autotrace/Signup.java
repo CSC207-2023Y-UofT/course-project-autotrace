@@ -32,14 +32,14 @@ public class Signup extends AppCompatActivity{
 
 
 
-    private FirebaseAuth mFirebaseAuth; //firebase인증
-    private DatabaseReference mDatabaseRef; //실시간 데이터 베이스.
-    private EditText mEtEmail; //버튼들 사용가능하게만들
+    private FirebaseAuth mFirebaseAuth; //firebase aurthenation
+    private DatabaseReference mDatabaseRef; //real time database.
+    private EditText mEtEmail;
 
 
     private ImageButton button;
     private EditText mEtPwd;
-   // private Button mBtnsignup; //밑에꺼대신씀.
+   // private Button mBtnsignup;
     private Button mbtnSignupContinue;
 
 
@@ -59,18 +59,18 @@ public class Signup extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // will do sign up activity
-                String strEmail = mEtEmail.getText().toString(); //입력 장치
-                String strPwd = mEtPwd.getText().toString(); //입려장치
+                String strEmail = mEtEmail.getText().toString(); //for Enter Email.
+                String strPwd = mEtPwd.getText().toString(); //for Enter pwd
                 mFirebaseAuth = FirebaseAuth.getInstance();
                 //Firebase auth ongo
                 //mDatabaseRef - FirebaseDatabase.getInstance().getReference();
-                //Firebase Auth 진행
+                //Firebase Auth Continue
                 mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
-                            UserAccount account = new UserAccount(); //객체 생성.
+                            UserAccount account = new UserAccount(); //create instance.
                             account.setIDToken(firebaseUser.getUid());
                             account.setEmailId(firebaseUser.getEmail());
                             account.setPassword(strPwd);

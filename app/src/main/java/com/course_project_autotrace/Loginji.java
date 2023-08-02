@@ -23,12 +23,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.w3c.dom.Text;
 
 public class Loginji extends AppCompatActivity {
-    private FirebaseAuth mFirebaseAuth; //firebase인증
-    private DatabaseReference mDatabaseRef; //실시간 데이터 베이스.
-    private EditText mEtEmail; //버튼들 사용가능하게만들
+    private FirebaseAuth mFirebaseAuth; // for firebase autheniation
+    private DatabaseReference mDatabaseRef; //for realtime database.
+    private EditText mEtEmail; //for edit text.
     private EditText mEtPwd;
     private ImageButton backButton;
-    //private Button mBtnsignup; 밑에꺼대신씀.
+    //private Button mBtnsignup; //since we using imagebutton on frontend , we use above.
 
     private TextView textViewSignUp;//diler put sigup button as text.
    //TextView textViewForgotpwd = findViewById(R.id.textView..)
