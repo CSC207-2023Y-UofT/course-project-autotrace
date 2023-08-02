@@ -49,9 +49,23 @@ public class Loginji extends AppCompatActivity {
         mBtnContinueLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                // Your existing code for continue login button click
+                String strEmail = mEtEmail.getText().toString();
+                String strPwd = mEtPwd.getText().toString();
+                mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(Loginji.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Intent intent = new Intent(Loginji.this,HomeScreen.class);
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            Toast.makeText(Loginji.this, "Failed login", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
+        startActivity(new Intent(Loginji.this, Signup.class));
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
