@@ -27,7 +27,7 @@ public class Loginji extends AppCompatActivity {
     private DatabaseReference mDatabaseRef; //for realtime database.
     private EditText mEtEmail; //for edit text.
     private EditText mEtPwd;
-    private ImageButton backButton;
+    private TextView textViewForgotpwd;
     //private Button mBtnsignup; //since we using imagebutton on frontend , we use above.
 
     private TextView textViewSignUp;//diler put sigup button as text.
@@ -44,7 +44,7 @@ public class Loginji extends AppCompatActivity {
         textViewSignUp = findViewById(R.id.textView7);
         mEtPwd = findViewById(R.id.editPassword);
         mBtnContinueLogin = findViewById(R.id.continueButton2);
-        backButton = findViewById(R.id.BackBtn); // Initialize the backButton using findViewById
+        textViewForgotpwd = findViewById(R.id.Forgotpwd); // Initialize the backButton using findViewById
 
         mBtnContinueLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -67,11 +67,11 @@ public class Loginji extends AppCompatActivity {
         });
         startActivity(new Intent(Loginji.this, Signup.class));
 
-        backButton.setOnClickListener(new View.OnClickListener() {
+        textViewForgotpwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Your existing code for backButton click
-                Intent intent = new Intent(Loginji.this, Signup.class);
+                //  code for Forgotpassword clicked
+                Intent intent = new Intent(Loginji.this, ForgotPassword1.class);
                 startActivity(intent);
             }
         });
@@ -79,7 +79,7 @@ public class Loginji extends AppCompatActivity {
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Your existing code for textViewSignUp click
+                //  code for textViewSignUp click
                 Intent intent = new Intent(Loginji.this, Signup.class);
                 startActivity(intent);
             }

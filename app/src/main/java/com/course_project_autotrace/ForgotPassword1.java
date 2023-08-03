@@ -1,0 +1,80 @@
+package com.course_project_autotrace;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class ForgotPassword1 extends AppCompatActivity {
+    Button btnResetContinue;
+    EditText edtEmail;
+    //ProgressBar progressBar;
+    FirebaseAuth mAuth;
+    TextView btnBack;
+    String strEmail;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_forgot_password1);
+        //declare
+        btnResetContinue = findViewById(R.id.btnResetPwdContinue);
+        edtEmail = findViewById(R.id.editTextEmail);
+        //progressbar = ..
+        mAuth = FirebaseAuth.getInstance();
+        //listener.
+        btnResetContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strEmail = edtEmail.getText().toString().trim();
+                if (!TextUtils.isEmpty(strEmail)) {
+                    ResetPassword();
+                } else {
+                    edtEmail.setError("Enter the Email");
+                }
+
+            }
+        });
+
+    }
+
+    //can be refactored by design principle/pattern.
+    private void ResetPassword() {
+        btnResetContinue.setVisibility(View.INVISIBLE);
+        mAuth.sendPasswordResetEmail(strEmail)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Reset email sent successfully. Handle your success case here if needed.
+                        Toast.makeText(ForgotPassword1.this,"Reset Password Link has been sent to your registered Email",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ForgotPassword1.this, Loginji.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle your failure case here if needed.
+                        Toast.makeText(ForgotPassword1.this, "Error:-"+ e.getMessage(), Toast.LENGTH_SHORT).show();
+
+
+                    }
+                });
+        btnResetContinue.setVisibility(View.VISIBLE);
+    }
+}
