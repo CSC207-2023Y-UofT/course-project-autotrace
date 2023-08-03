@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -85,6 +86,11 @@ public class Signup extends AppCompatActivity{
                     }
                 }
             });
+        });
+        ImageButton backBtn = findViewById(R.id.BackBtn);
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Signup.this, Loginji.class);
+            startActivity(intent);
         });
 
 
