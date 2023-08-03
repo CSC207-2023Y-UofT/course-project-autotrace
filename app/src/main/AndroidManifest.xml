@@ -12,25 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Courseprojectautotrace"
         tools:targetApi="31">
+
         <activity
-            android:name=".ForgotPassword1"
-            android:exported="false" />
-        <activity
-            android:name=".Loginji"
+            android:name=".SplashScreen"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
+
+        <activity
+            android:name=".Loginji"
+            android:exported="true" />
+
         <activity
             android:name=".Signup"
             android:exported="false" />
+
         <activity
             android:name=".LogInScreen"
-
             android:exported="false" />
+
         <activity
             android:name=".HomeScreen"
             android:exported="false">
@@ -38,6 +45,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".BasicCarInfo"
             android:exported="false">
@@ -45,6 +53,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".RegisterNewVehicle"
             android:exported="false">
@@ -52,14 +61,5 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".SplashScreen"
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
     </application>
-
 </manifest>
