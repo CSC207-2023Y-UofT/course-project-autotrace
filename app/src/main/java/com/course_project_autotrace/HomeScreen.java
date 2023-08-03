@@ -40,6 +40,11 @@ public class HomeScreen extends AppCompatActivity {
             Intent intent3 = new Intent(HomeScreen.this, TrafficViolations.class);
             startActivity(intent3);
         });
+        ImageButton profileBTN = findViewById(R.id.profileBTN);
+        profileBTN.setOnClickListener(v -> {
+            Intent intent3 = new Intent(HomeScreen.this, ProfileScreen.class);
+            startActivity(intent3);
+        });
     }
 
 }
