@@ -164,7 +164,7 @@
         android:contentDescription="@string/todo" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/HomeButton"
         android:layout_width="60dp"
         android:layout_height="61dp"
         android:background="@android:color/transparent"
@@ -178,7 +178,7 @@
         app:srcCompat="@drawable/homebtn" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/violationBtn"
         android:layout_width="67dp"
         android:layout_height="61dp"
         android:background="@android:color/transparent"
@@ -206,7 +206,7 @@
         app:srcCompat="@drawable/carinfobtn" />
 
     <ImageButton
-        android:id="@+id/ProfileBTN"
+        android:id="@+id/profileBTN"
         android:layout_width="59dp"
         android:layout_height="59dp"
         android:background="@android:color/transparent"
@@ -216,7 +216,7 @@
         app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.978"
+        app:layout_constraintVertical_bias="0.98"
         app:srcCompat="@drawable/profilebtn"
         tools:ignore="ImageContrastCheck" />
 

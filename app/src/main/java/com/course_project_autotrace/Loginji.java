@@ -73,6 +73,14 @@ public class Loginji extends AppCompatActivity {
             Intent intent = new Intent(Loginji.this, Signup.class);
             startActivity(intent);
         });
+
+        Button continueBt2 = findViewById(R.id.continueBtn2);
+        continueBt2.setOnClickListener(v -> {
+            Intent intent = new Intent(Loginji.this, BasicCarInfo.class);
+            startActivity(intent);
+        });
+
     }
+
 
 }
