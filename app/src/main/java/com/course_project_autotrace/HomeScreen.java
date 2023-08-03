@@ -28,6 +28,12 @@ public class HomeScreen extends AppCompatActivity {
             Intent intent2 = new Intent(HomeScreen.this, RegisterNewVehicle.class);
             startActivity(intent2);
         });
+
+        ImageButton carBtn = findViewById(R.id.car1Btn);
+        carBtn.setOnClickListener(v -> {
+            Intent intent3 = new Intent(HomeScreen.this, CarInfo.class);
+            startActivity(intent3);
+        });
     }
 
 }

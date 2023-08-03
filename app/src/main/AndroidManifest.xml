@@ -16,6 +16,9 @@
             android:name=".TrafficViolations"
             android:exported="false" />
         <activity
+            android:name=".CarInfo"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPassword1"
             android:exported="false" />
         <activity
