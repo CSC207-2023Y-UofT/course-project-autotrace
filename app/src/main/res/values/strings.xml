@@ -35,4 +35,12 @@
     <string name="access_basic_car_info">Access basic car info</string>
     <string name="enter_license_plate">Enter License Plate</string>
     <string name="forgot_password">Forgot Password</string>
+    <string name="password">Password</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="username">Enter Name</string>
+    <string name="edit_email">Edit Email</string>
+    <string name="email">Email</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="usersname">Name</string>
+    <string name="profile_information">Profile Information</string>
 </resources>
