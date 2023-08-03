@@ -29,6 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".LogInScreen"
+
             android:exported="false" />
         <activity
             android:name=".HomeScreen"
@@ -52,7 +53,8 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
