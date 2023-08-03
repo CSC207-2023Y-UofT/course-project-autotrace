@@ -35,4 +35,8 @@
     <string name="access_basic_car_info">Access basic car info</string>
     <string name="enter_license_plate">Enter License Plate</string>
     <string name="forgot_password">Forgot Password</string>
+    <string name="confirm_your_password">Confirm Your Password</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="create_your_account">Create Your Account</string>
+    <string name="let_s_go">Let\'s Go</string>
 </resources>
