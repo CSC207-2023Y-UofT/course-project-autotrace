@@ -22,7 +22,11 @@ public class HomeScreen extends AppCompatActivity {
             Intent intent2 = new Intent(HomeScreen.this, BasicCarInfo.class);
             startActivity(intent2);
         });
-
+        ImageButton profileBtn = findViewById(R.id.ProfileScreenBtn);
+        profileBtn.setOnClickListener(v -> {
+            Intent intent2 = new Intent(HomeScreen.this, ProfileScreen.class);
+            startActivity(intent2);
+        });
         ImageButton registerNewCarBtn = findViewById(R.id.AddBtn);
         registerNewCarBtn.setOnClickListener(v -> {
             Intent intent2 = new Intent(HomeScreen.this, RegisterNewVehicle.class);
