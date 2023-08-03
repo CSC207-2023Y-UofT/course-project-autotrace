@@ -34,6 +34,12 @@ public class HomeScreen extends AppCompatActivity {
             Intent intent3 = new Intent(HomeScreen.this, CarInfo.class);
             startActivity(intent3);
         });
+
+        ImageButton violationBtn = findViewById(R.id.violationBtn);
+        violationBtn.setOnClickListener(v -> {
+            Intent intent3 = new Intent(HomeScreen.this, TrafficViolations.class);
+            startActivity(intent3);
+        });
     }
 
 }

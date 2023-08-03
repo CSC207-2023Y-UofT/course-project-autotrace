@@ -168,7 +168,7 @@
         app:srcCompat="@drawable/homebtn" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/violationBtn"
         android:layout_width="67dp"
         android:layout_height="61dp"
         android:background="@android:color/transparent"
