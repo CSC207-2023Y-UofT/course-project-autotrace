@@ -57,5 +57,27 @@ public class ProfileScreen extends AppCompatActivity {
         } else {
             userEmail.setText("Not logged in.");
         }
+        ImageButton violationBtn = findViewById(R.id.violationBtn);
+        violationBtn.setOnClickListener(v -> {
+            Intent intent3 = new Intent(ProfileScreen.this, TrafficViolations.class);
+            startActivity(intent3);
+        });
+        ImageButton profileBTN = findViewById(R.id.profileBTN);
+        profileBTN.setOnClickListener(v -> {
+            Intent intent3 = new Intent(ProfileScreen.this, ProfileScreen.class);
+            startActivity(intent3);
+        });
+
+        ImageButton CarInfoB = findViewById(R.id.CarInfoBtn);
+        CarInfoB.setOnClickListener(v -> {
+            Intent intent2 = new Intent(ProfileScreen.this, CarInfo.class);
+            startActivity(intent2);
+        });
+
+        ImageButton HomeBtn = findViewById(R.id.HomeButton);
+        HomeBtn.setOnClickListener(v -> {
+            Intent intent2 = new Intent(ProfileScreen.this, HomeScreen.class);
+            startActivity(intent2);
+        });
     }
 }

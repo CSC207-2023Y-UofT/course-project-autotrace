@@ -12,11 +12,7 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        ImageButton backBtn = findViewById(R.id.BackBtn);
-        backBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeScreen.this, RegisterNewVehicle.class);
-            startActivity(intent);
-        });
+
         ImageButton basicCarInfoBtn = findViewById(R.id.CarInfoBtn);
         basicCarInfoBtn.setOnClickListener(v -> {
             Intent intent2 = new Intent(HomeScreen.this, BasicCarInfo.class);
@@ -44,6 +40,18 @@ public class HomeScreen extends AppCompatActivity {
         profileBTN.setOnClickListener(v -> {
             Intent intent3 = new Intent(HomeScreen.this, ProfileScreen.class);
             startActivity(intent3);
+        });
+
+        ImageButton CarInfoB = findViewById(R.id.CarInfoBtn);
+        CarInfoB.setOnClickListener(v -> {
+            Intent intent2 = new Intent(HomeScreen.this, CarInfo.class);
+            startActivity(intent2);
+        });
+
+        ImageButton HomeBtn = findViewById(R.id.HomeButton);
+        HomeBtn.setOnClickListener(v -> {
+            Intent intent2 = new Intent(HomeScreen.this, HomeScreen.class);
+            startActivity(intent2);
         });
     }
 

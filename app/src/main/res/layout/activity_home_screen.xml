@@ -154,7 +154,7 @@
         android:contentDescription="@string/todo" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/HomeButton"
         android:layout_width="60dp"
         android:layout_height="61dp"
         android:background="@android:color/transparent"
@@ -223,21 +223,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.873"
         app:srcCompat="@drawable/plus"
-        tools:ignore="RedundantDescriptionCheck" />
-    <ImageButton
-        android:id="@+id/BackBtn"
-        android:layout_width="67dp"
-        android:layout_height="49dp"
-        android:background="@android:color/transparent"
-        android:backgroundTintMode="add"
-        android:contentDescription="@string/back_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018"
-        app:srcCompat="@drawable/backarrow"
         tools:ignore="RedundantDescriptionCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
