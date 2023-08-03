@@ -35,6 +35,18 @@
     <string name="access_basic_car_info">Access basic car info</string>
     <string name="enter_license_plate">Enter License Plate</string>
     <string name="forgot_password">Forgot Password</string>
+
+    <string name="driver_jiseong_zaza">Driver: Jiseong Zaza</string>
+    <string name="year_2018">Year: 2018</string>
+    <string name="insurance_information">Insurance Information</string>
+    <string name="traffic_violations">Traffic Violations</string>
+    <string name="red_light_violation">Red Light Violation</string>
+    <string name="july_10_2023">July 10 2023</string>
+    <string name="bloor_and_sherbourne">Bloor and Sherbourne</string>
+    <string name="parking_ticket">Parking Ticket</string>
+    <string name="june_15_2023">June 15 2023</string>
+    <string name="college_and_st_george">College and St George</string>
+
     <string name="confirm_your_password">Confirm Your Password</string>
     <string name="enter_your_full_name">Enter your full name</string>
     <string name="create_your_account">Create Your Account</string>

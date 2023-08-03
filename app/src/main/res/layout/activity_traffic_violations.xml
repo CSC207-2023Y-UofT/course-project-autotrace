@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/home"
+        android:text="@string/traffic_violations"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -34,13 +34,6 @@
         app:layout_constraintTop_toBottomOf="@id/textView">
 
         <!-- Image on the left -->
-        <ImageButton
-            android:id="@+id/car1Btn"
-            android:layout_width="100dp"
-            android:layout_height="73dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/car_image"
-            android:src="@drawable/van" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -54,7 +47,7 @@
                 android:id="@+id/headingTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/toyota_rav_4"
+                android:text="@string/red_light_violation"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -64,7 +57,7 @@
                 android:id="@+id/subheadingTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/midsize_suv"
+                android:text="@string/july_10_2023"
                 android:textColor="#546E7A"
                 android:textSize="13sp" />
 
@@ -73,10 +66,21 @@
                 android:id="@+id/descriptionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_2022"
+                android:text="@string/bloor_and_sherbourne"
                 android:textColor="#546E7A"
                 android:textSize="11sp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/headingTextView4"
+            android:layout_width="252dp"
+            android:layout_height="62dp"
+            android:baselineAligned="false"
+            android:text="        $300"
+            android:textColor="@android:color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <LinearLayout
@@ -84,24 +88,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/roundedrectangle"
+        android:elevation="8dp"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:elevation="8dp"
-        app:layout_constraintTop_toBottomOf="@id/card1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card1">
 
         <!-- Image on the left -->
 
         <!-- Right section containing heading, subheading, and description -->
-
-        <ImageButton
-            android:id="@+id/car2Btn"
-            android:layout_width="101dp"
-            android:layout_height="74dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/car_image"
-            android:src="@drawable/van" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -115,17 +111,18 @@
                 android:id="@+id/headingTextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tesla_model_3"
+                android:text="@string/parking_ticket"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <!-- Subheading -->
+
             <TextView
-                android:id="@+id/subheadingTextView2"
+                android:id="@+id/subheadingTextView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/electric_sedan"
+                android:text="@string/june_15_2023"
                 android:textColor="#546E7A"
                 android:textSize="13sp" />
 
@@ -134,10 +131,23 @@
                 android:id="@+id/descriptionTextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_2022"
+                android:text="@string/college_and_st_george"
                 android:textColor="#546E7A"
                 android:textSize="11sp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/headingTextView3"
+            android:layout_width="231dp"
+            android:layout_height="62dp"
+            android:baselineAligned="false"
+            android:text="             $300"
+            android:textColor="@android:color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+
     </LinearLayout>
 
     <ImageView
@@ -168,7 +178,7 @@
         app:srcCompat="@drawable/homebtn" />
 
     <ImageButton
-        android:id="@+id/violationBtn"
+        android:id="@+id/imageButton2"
         android:layout_width="67dp"
         android:layout_height="61dp"
         android:background="@android:color/transparent"
@@ -210,20 +220,6 @@
         app:srcCompat="@drawable/profilebtn"
         tools:ignore="ImageContrastCheck" />
 
-    <ImageButton
-        android:id="@+id/AddBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/add_vehicle_button"
-        app:layout_constraintBottom_toBottomOf="@+id/NavBarShade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873"
-        app:srcCompat="@drawable/plus"
-        tools:ignore="RedundantDescriptionCheck" />
     <ImageButton
         android:id="@+id/BackBtn"
         android:layout_width="67dp"
