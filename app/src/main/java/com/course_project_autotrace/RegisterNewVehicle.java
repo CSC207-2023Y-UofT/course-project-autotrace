@@ -30,6 +30,11 @@ public class RegisterNewVehicle extends AppCompatActivity {
             Intent intent2 = new Intent(RegisterNewVehicle.this, HomeScreen.class);
             startActivity(intent2);
         });
+        ImageButton profileBtn = findViewById(R.id.ProfileScreenBtn);
+        profileBtn.setOnClickListener(v -> {
+            Intent intent2 = new Intent(RegisterNewVehicle.this, ProfileScreen.class);
+            startActivity(intent2);
+        });
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users").child("1");

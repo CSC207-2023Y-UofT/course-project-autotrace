@@ -3,7 +3,9 @@ package com.course_project_autotrace;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +20,11 @@ public class ProfileScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_screen);
+        ImageButton backBtn = findViewById(R.id.BackBtn);
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileScreen.this, HomeScreen.class);
+            startActivity(intent);
+        });
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
