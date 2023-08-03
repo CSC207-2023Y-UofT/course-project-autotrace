@@ -20,7 +20,6 @@ public class Loginji extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth; // for firebase autheniation
     private EditText mEtEmail; //for edit text.
     private EditText mEtPwd;
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
