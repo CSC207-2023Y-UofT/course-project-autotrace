@@ -1,123 +1,151 @@
-<LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="14dp">
 
-
     <ImageView
+        android:id="@+id/logoImageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginHorizontal="100dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
     <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create your account"
-        android:layout_marginLeft="70dp"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.336" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
         android:text="Enter your email"
-        android:layout_marginRight="130dp"
-
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/et_email"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423" />
 
     <EditText
         android:id="@+id/et_email"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:background="@drawable/roundedrectangle"
+        android:gravity="center"
         android:hint="Enter your email"
         android:inputType="textEmailAddress"
-        android:background="@drawable/roundedrectangle"
-
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
-        android:gravity="center"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485" />
 
     <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
         android:text="Enter your password"
-        android:layout_marginRight="130dp"
-
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/et_password"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.553" />
 
     <EditText
         android:id="@+id/et_password"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:background="@drawable/roundedrectangle"
+        android:gravity="center"
         android:hint="Enter your password"
         android:inputType="textEmailAddress"
-        android:background="@drawable/roundedrectangle"
-
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
-        android:gravity="center"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632" />
 
     <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
         android:text="Re-Enter your password"
-        android:layout_marginRight="130dp"
-
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/et_password2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.717" />
 
     <EditText
         android:id="@+id/et_password2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:background="@drawable/roundedrectangle"
+        android:gravity="center"
         android:hint="Re-Enter your password"
         android:inputType="textEmailAddress"
-        android:background="@drawable/roundedrectangle"
-
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
-        android:gravity="center"
-        />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logoImageView"
+        app:layout_constraintVertical_bias="0.784" />
 
     <Button
         android:id="@+id/SignupContinue"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_btn"
+        android:onClick="onContinueButtonClick"
         android:text="Continue"
-        android:textSize="20sp"
-        android:background="@drawable/roundedrectangle"
-        android:onClick="onContinueButtonClick" />
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.902" />
 
-    <Button
-        android:id="@+id/buttonContinueGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:textSize="20sp"
-        android:textColor="#000000"
+    <ImageButton
+        android:id="@+id/backButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrow"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        android:text="Continue with Google"
-        android:background="@drawable/roundedrectangle"
-        android:onClick="onContinueButtonClick" />
-
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

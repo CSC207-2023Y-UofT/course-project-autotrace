@@ -41,6 +41,7 @@ public class Signup extends AppCompatActivity{
     private EditText mEtPwd;
    // private Button mBtnsignup;
     private Button mbtnSignupContinue;
+    private ImageButton mbtnBack;
 
 
     @Override
@@ -53,6 +54,7 @@ public class Signup extends AppCompatActivity{
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_password);
         mbtnSignupContinue = findViewById(R.id.SignupContinue);
+
 
 
         mbtnSignupContinue.setOnClickListener(new View.OnClickListener() {
