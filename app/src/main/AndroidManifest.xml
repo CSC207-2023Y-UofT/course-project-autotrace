@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Courseprojectautotrace"
         tools:targetApi="31">
+
         <activity
             android:name=".NotificationsScreen"
             android:exported="false" />
@@ -24,12 +25,28 @@
         <activity
             android:name=".Loginji"
             android:exported="true">
+        <activity
+            android:name=".ForgotPassword1"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Loginji"
+            android:exported="true" />
         <activity
             android:name=".Signup"
             android:exported="false" />
