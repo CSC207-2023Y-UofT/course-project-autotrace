@@ -1,7 +1,6 @@
 package com.course_project_autotrace;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +11,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProfileScreen extends AppCompatActivity {
 
@@ -27,8 +31,10 @@ public class ProfileScreen extends AppCompatActivity {
         });
         Button logoutBtn = findViewById(R.id.buttonLogout);
         logoutBtn.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(ProfileScreen.this, LogInScreen.class);
             startActivity(intent);
+            finish(); // Close the profile screen after logging out
         });
         Button editBtn = findViewById(R.id.buttonProfileInformation);
         editBtn.setOnClickListener(v -> {
@@ -37,16 +43,18 @@ public class ProfileScreen extends AppCompatActivity {
         });
         Button rateBtn = findViewById(R.id.buttonRateUs);
         rateBtn.setOnClickListener(v -> {
-            // Open apple.com in a web browser
-            String appleUrl = "https://github.com/CSC207-2023Y-UofT/course-project-autotrace";
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(appleUrl));
+            // Open GitHub link in a web browser
+            String githubUrl = "https://github.com/CSC207-2023Y-UofT/course-project-autotrace";
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(githubUrl));
             startActivity(intent);
         });
+
         // Initialize Firebase Auth
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-        // Get a reference to the TextView
+        // Get a reference to the TextViews
         TextView userEmail = findViewById(R.id.userEmail);
+        TextView userName = findViewById(R.id.userName);
 
         // Get the current authenticated user
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -54,8 +62,28 @@ public class ProfileScreen extends AppCompatActivity {
         // Set the email to the TextView if the user is signed in
         if (currentUser != null) {
             userEmail.setText(currentUser.getEmail());
+            // Get and set the username from the database
+            fetchAndSetUserName(currentUser.getUid(), userName);
         } else {
             userEmail.setText("Not logged in.");
+            userName.setText("");
         }
+    }
+
+    private void fetchAndSetUserName(String userId, TextView userNameTextView) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UserAccount");
+        databaseReference.child(userId).child("fullName").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String userName = dataSnapshot.getValue(String.class);
+                userNameTextView.setText(userName);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle any errors that may occur during the database operation
+                userNameTextView.setText("Error fetching username");
+            }
+        });
     }
 }
