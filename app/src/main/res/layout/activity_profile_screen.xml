@@ -36,25 +36,23 @@
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Harris Harris"
+        android:layout_marginTop="8dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/profilePicture"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/profilePicture" />
 
     <!-- Phone Number -->
 
     <!-- Subtitle: Account Settings -->
 
     <!-- Buttons: Profile Information, Notifications, Rate Us, Logout -->
+
     <TextView
-        android:id="@+id/phoneTextView"
+        android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="harris@gmail.com"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -71,7 +69,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/userEmail" />
 
     <LinearLayout
         android:layout_width="0dp"
