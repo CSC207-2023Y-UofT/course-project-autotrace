@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Title: Profile Information -->
+    <TextView
+        android:id="@+id/titleProfileInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="Profile Information"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Profile Picture -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/titleProfileInformation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_profile_picture" />
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilePicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="John User"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Phone Number -->
+    <TextView
+        android:id="@+id/phoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="437 921 2092"
+        android:textSize="16sp" />
+
+    <!-- Subtitle: Account Settings -->
+    <TextView
+        android:id="@+id/titleAccountSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Account Settings"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Buttons: Profile Information, Notifications, Rate Us, Logout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleAccountSettings"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonProfileInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background_rectangular"
+            android:drawableLeft="@drawable/ic_profile_information"
+            android:gravity="start|center_vertical"
+            android:padding="16dp"
+            android:text="Profile Information"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/buttonNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background_rectangular"
+            android:drawableLeft="@drawable/ic_notifications"
+            android:gravity="start|center_vertical"
+            android:padding="16dp"
+            android:text="Notifications"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/buttonRateUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_background_rectangular"
+            android:drawableLeft="@drawable/ic_rate_us"
+            android:gravity="start|center_vertical"
+            android:padding="16dp"
+            android:text="Rate Us"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background_rectangular"
+            android:drawableLeft="@drawable/ic_logout"
+            android:gravity="start|center_vertical"
+            android:padding="16dp"
+            android:text="Logout"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</RelativeLayout>
