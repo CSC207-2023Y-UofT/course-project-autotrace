@@ -27,7 +27,7 @@ public class Loginji extends AppCompatActivity {
     private EditText mEtEmail; //for edit text.
     private EditText mEtPwd;
     //private Button mBtnsignup; //since we using imagebutton on frontend , we use above.
-
+    //testing commit
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
