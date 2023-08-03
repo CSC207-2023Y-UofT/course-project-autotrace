@@ -41,7 +41,7 @@ public class Signup extends AppCompatActivity{
     private EditText mEtPwd;
    // private Button mBtnsignup;
     private Button mbtnSignupContinue;
-    private ImageButton mbtnBack;
+    private ImageButton bckButton;
 
 
     @Override
@@ -54,7 +54,7 @@ public class Signup extends AppCompatActivity{
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_password);
         mbtnSignupContinue = findViewById(R.id.SignupContinue);
-
+        bckButton = findViewById(R.id.backButton5);
 
 
         mbtnSignupContinue.setOnClickListener(new View.OnClickListener() {
@@ -78,15 +78,24 @@ public class Signup extends AppCompatActivity{
                             account.setPassword(strPwd);
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
                             Toast.makeText(Signup.this, "signup Successfull", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
+                        } else {
                             Toast.makeText(Signup.this, "signup failed2", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
             }
+
         });
+        bckButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                // Navigate to the Loginji screen when back button is clicked
+                Intent intent = new Intent(Signup.this, Loginji.class);
+                startActivity(intent);
+                finish();
+            }
 
 
+        });
     }
 }

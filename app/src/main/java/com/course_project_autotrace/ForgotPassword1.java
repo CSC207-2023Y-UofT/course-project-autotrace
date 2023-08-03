@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class ForgotPassword1 extends AppCompatActivity {
     FirebaseAuth mAuth;
     TextView btnBack;
     String strEmail;
+    ImageButton bckButton;
 
 
     @Override
@@ -36,6 +38,8 @@ public class ForgotPassword1 extends AppCompatActivity {
         edtEmail = findViewById(R.id.editTextEmail);
         //progressbar = ..
         mAuth = FirebaseAuth.getInstance();
+        bckButton = findViewById(R.id.BackBtn);
+
         //listener.
         btnResetContinue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +53,15 @@ public class ForgotPassword1 extends AppCompatActivity {
 
             }
         });
+        bckButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                // Navigate to the Loginji screen when back button is clicked
+                Intent intent = new Intent(ForgotPassword1.this, Loginji.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
     }
 
