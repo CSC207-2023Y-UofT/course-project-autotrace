@@ -1,39 +1,64 @@
-# Project Template
+# AutoTrace
 
-This is a template repository for CSC 207 projects. 
-This repository contains starter code for a gradle project.
-It also contains workflow documents that give instructions on how to manage your Github repository and how to use Github Projects for efficient collaboration.
+AutoTrace is an Android app designed to provide users with essential information about vehicles by inputting their license plate numbers. It offers a simple and efficient way to retrieve car model and registration date data from relevant databases. Additionally, it provides administrators with the ability to register license plates into the system, along with associated driver and car information.
 
-## Checklist For Your Project
-- [ ] Verify the correct settings for your project repository
-- [ ] Set up Github Projects
-- [ ] Create the implementation plan using issues and Github Projects
-- [ ] Create deveopment branches for your features
-- [ ] Use pull requests to merge finished features into main branch
-- [ ] Conduct code reviews
+## Motivation
 
-**If your team has trouble with any of these steps, please ask on Piazza. For example, with how GitHub Classroom works, your team *may* not have permissions to do some of the first few steps, in which case we'll post alternative instructions as needed.**
+The primary motivation behind AutoTrace is to offer a convenient solution for users who need to identify car models and registration dates based on license plate numbers. This app aims to streamline the process of accessing vehicle information by leveraging databases and providing an intuitive user interface.
 
-## Workflow Documents
+## Features
 
-* Github Workflow: Please refer to the workflow that was introduced in the first lab. You should follow this when working on your code. The following document provides additional details too.
+- License Plate Search: Users can input a license plate number and retrieve the corresponding car model and registration date.
+- User Registration: Administrators have the option to register new license plates into the system along with driver and car information.
+- Secure Authentication: The app provides secure login functionality for both regular users and administrators to access their respective features.
+- Vehicle Information: Users can view detailed information about previously registered vehicles, including insurance details.
+- Traffic Violations: Users can check for any traffic violation tickets associated with a particular vehicle, displaying relevant details such as amount payable, issue date, intersection, and violation description.
 
-* [Project Planning and Development Guide](project_plan_dev.md): This document helps you to understand how to create and maintain a project plan for your class project. **This document helps you to complete the Implementation Plan Milestone.**
+## Scenario Walkthrough
 
-## Gradle Project
-Import this project into your Intellij editor. It should automatically recognise this as a gradle repository.
-The starter code was built using SDK version 11.0.1. Ensure that you are using this version for this project. (You can, of course, change the SDK version as per your requirement if your team has all agreed to use a different version)
+### License Plate Search
+1. User opens the AutoTrace Android app and launches the license plate search feature.
+2. They enter the license plate number into the provided input field and tap on the "Search" button.
+3. The app processes the input and queries the relevant databases based on the user's access key.
+4. The app retrieves the car model and registration date associated with the provided license plate number.
+5. Finally, the app displays the car model and registration date on the user interface, allowing the user to view the information.
 
-You have been provided with two starter files for demonstration: HelloWorld and HelloWorldTest.
+### Vehicle Registration (Admin)
+1. The administrator logs into the AutoTrace Android app with their credentials to access the registration section.
+2. They input the license plate number, driver details, and car information into the provided fields.
+3. After filling in the required information, the administrator taps on the "Register" button to submit the details.
+4. The app receives the registration information and validates it.
+5. If the information is valid, the app stores the license plate, driver, and car information in the database.
+6. The administrator receives a confirmation message indicating successful registration, and the newly registered information is now accessible within the system.
 
-You will find HelloWorld in `src/main/java/tutorial` directory. Right click on the HelloWorld file and click on `Run HelloWorld.main()`.
-This should run the program and print on your console.
+### Viewing Vehicle Information
+1. User logs in with their email and password.
+2. They are directed to the home screen, where they can view different previously registered vehicles.
+3. The user selects a specific vehicle and can access the car information screen, which may include insurance details.
 
-You will find HelloWorldTest in `src/test/java/tutorial` directory. Right click on the HelloWorldTest file and click on `Run HelloWorldTest`.
-All tests should pass. Your team can remove this sample of how testing works once you start adding your project code to the repo.
+### Checking Traffic Violations
+1. User logs in with their email and password.
+2. They are directed to the home screen, where they can view different vehicles.
+3. The user presses the traffic violation icon in the bottom bar.
+4. They are taken to the traffic violations page, displaying various tickets with details such as amount payable, date ticket was issued, the intersection where the violation occurred, and a description of the violation (e.g., parking ticket, traffic light violation).
 
-Moving forward, we expect you to maintain this project structure. You *should* use Gradle as the build environment, but it is fine if your team prefers to use something else -- just remove the gradle files and push your preferred project setup. Assuming you stick with Gradle, your source code should go into `src/main/java` (you can keep creating more subdirectories as per your project requirement). Every source class can auto-generate a test file for you. For example, open HelloWorld.java file and click on the `HelloWorld` variable as shown in the image below. You should see an option `Generate` and on clicking this your should see an option `Test`. Clicking on this will generate a JUnit test file for `HelloWorld` class. This was used to generate the `HelloWorldTest`.
+### Registering a New Vehicle
+1. User logs in with their email and password.
+2. They are directed to the home screen, where they can view different previously registered vehicles.
+3. The user presses the plus button (new vehicle registration button).
+4. They proceed to register a new vehicle by inputting the License Plate, Last Name, and Date of Birth.
+5. Once the information is input, the user views a vehicle registration confirmation screen, confirming the successful registration if the information is valid and meets the requirements.
 
-![image](https://user-images.githubusercontent.com/5333020/196066655-d3c97bf4-fdbd-46b0-b6ae-aeb8dbcf351d.png)
+### Accessing Basic Information Screen (Guest Login)
+1. A user can access the basic information screen by inputting a license plate number without logging in.
+2. The user views basic car information associated with the inputted license plate number.
 
-You can create another simple class and try generating a test for this class.
+### User Registration
+1. User presses the sign-up button and inputs their email, password, and password confirmation.
+2. The user receives a verification email with a four-digit code.
+3. They input the four-digit code into the verification field.
+4. The user views a verification success pop-up confirming their successful registration.
+
+## Getting Started
+
+To use AutoTrace, simply sign up for an account once you open the app. Once you have an account, you can register your new vehicles and if you get a parking violation, it will show up on your account. You can also customize your profile from the profile page. If you made an account and forgot your password, you can reset that too.
