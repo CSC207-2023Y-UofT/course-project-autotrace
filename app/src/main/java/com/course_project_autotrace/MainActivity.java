@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button move = findViewById(R.id.Move);
         move.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, LogInScreen.class);
+            Intent intent = new Intent(MainActivity.this, LoginScreen.class);
             startActivity(intent);
         });
     }

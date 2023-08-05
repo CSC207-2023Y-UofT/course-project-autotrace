@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -38,6 +39,7 @@ public class RegisterNewVehicle extends AppCompatActivity {
         Button registerVehicleBtn = findViewById(R.id.RegisterBtn);
         licensePlate = findViewById(R.id.LicensePlate);
         EditText lastName = findViewById(R.id.LastName);
+
         EditText DOB = findViewById(R.id.DOB);
 
         registerVehicleBtn.setOnClickListener(v -> {

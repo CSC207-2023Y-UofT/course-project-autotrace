@@ -14,7 +14,7 @@ public class BasicCarInfo extends AppCompatActivity {
         setContentView(R.layout.activity_basic_car_info);
         ImageButton backBtn = findViewById(R.id.BackBtn);
         backBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(BasicCarInfo.this, HomeScreen.class);
+            Intent intent = new Intent(BasicCarInfo.this, LoginScreen.class);
             startActivity(intent);
         });
     }
