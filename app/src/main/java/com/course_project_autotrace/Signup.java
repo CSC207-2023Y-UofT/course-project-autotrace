@@ -1,6 +1,5 @@
 package com.course_project_autotrace;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,9 +9,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth; // Import FirebaseAuth
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +23,7 @@ public class Signup extends AppCompatActivity{
     private EditText mEtEmail;
     private EditText mEtPwd;
     private EditText mName;
+    private EditText DriverLicense;
 
 
 
@@ -40,6 +37,7 @@ public class Signup extends AppCompatActivity{
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_password);
         mName = findViewById(R.id.fullName);
+        DriverLicense = findViewById(R.id.DriverLicense);
         Button mbtnSignupContinue = findViewById(R.id.SignupContinue);
 
 
@@ -48,6 +46,7 @@ public class Signup extends AppCompatActivity{
             String strEmail = mEtEmail.getText().toString();
             String strPwd = mEtPwd.getText().toString();
             String strName = mName.getText().toString();
+            String strDLicense = DriverLicense.getText().toString();
 
             // Check if any field is empty
             if (strEmail.isEmpty() || strPwd.isEmpty() || strName.isEmpty()) {
@@ -56,34 +55,32 @@ public class Signup extends AppCompatActivity{
             }
 
             // Continue with Firebase Authentication
-            mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
-                        if (firebaseUser != null) {
-                            // Create a new instance of UserAccount with name, email, and password
-                            UserAccount account = new UserAccount();
-                            account.setIDToken(firebaseUser.getUid());
-                            account.setEmailId(strEmail);
-                            account.setPassword(strPwd);
-                            account.setFullName(strName); // Set the name in the UserAccount
+            mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(Signup.this, task -> {
+                if (task.isSuccessful()) {
+                    FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
+                    if (firebaseUser != null) {
+                        // Create a new instance of UserAccount with name, email, and password
+                        UserAccount account = new UserAccount();
+                        account.setIDToken(firebaseUser.getUid());
+                        account.setEmailId(strEmail);
+                        account.setPassword(strPwd);
+                        account.setFullName(strName); // Set the name in the UserAccount
+                        account.setDriverLicense(strDLicense);
 
-                            // Save the UserAccount to the Realtime Database
-                            mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
+                        // Save the UserAccount to the Realtime Database
+                        mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
 
-                            Toast.makeText(Signup.this, "Signup Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Signup.this, LoginScreen.class);
-                            startActivity(intent);
-                            finish(); // Close the current activity to prevent going back with the back button
+                        Toast.makeText(Signup.this, "Signup Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Signup.this, LoginScreen.class);
+                        startActivity(intent);
+                        finish(); // Close the current activity to prevent going back with the back button
 
-                            // You can add further actions like opening a new activity here
-                        } else {
-                            Toast.makeText(Signup.this, "Error: User is null", Toast.LENGTH_SHORT).show();
-                        }
+                        // You can add further actions like opening a new activity here
                     } else {
-                        Toast.makeText(Signup.this, "Signup Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, "Error: User is null", Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(Signup.this, "Signup Failed", Toast.LENGTH_SHORT).show();
                 }
             });
         });
