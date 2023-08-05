@@ -84,6 +84,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -235,5 +236,18 @@
         app:layout_constraintVertical_bias="0.018"
         app:srcCompat="@drawable/backarrow"
         tools:ignore="RedundantDescriptionCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="Refresh button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871"
+        app:srcCompat="@drawable/refresh2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
