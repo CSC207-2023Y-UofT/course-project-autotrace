@@ -45,13 +45,10 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Loginji"
+            android:name=".LoginScreen"
             android:exported="true" />
         <activity
             android:name=".Signup"
-            android:exported="false" />
-        <activity
-            android:name=".LogInScreen"
             android:exported="false" />
         <activity
             android:name=".HomeScreen"

@@ -73,7 +73,7 @@ public class Signup extends AppCompatActivity{
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
 
                             Toast.makeText(Signup.this, "Signup Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Signup.this, Loginji.class);
+                            Intent intent = new Intent(Signup.this, LoginScreen.class);
                             startActivity(intent);
                             finish(); // Close the current activity to prevent going back with the back button
 
@@ -89,7 +89,7 @@ public class Signup extends AppCompatActivity{
         });
         ImageButton backBtn = findViewById(R.id.BackBtn);
         backBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(Signup.this, Loginji.class);
+            Intent intent = new Intent(Signup.this, LoginScreen.class);
             startActivity(intent);
         });
 

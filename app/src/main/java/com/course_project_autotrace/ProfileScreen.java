@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,9 +33,10 @@ public class ProfileScreen extends AppCompatActivity {
         Button logoutBtn = findViewById(R.id.buttonLogout);
         logoutBtn.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(ProfileScreen.this, LogInScreen.class);
+            Intent intent = new Intent(ProfileScreen.this, LoginScreen.class);
             startActivity(intent);
             finish(); // Close the profile screen after logging out
+            Toast.makeText(ProfileScreen.this,"Logout succefully",Toast.LENGTH_SHORT).show();
         });
         Button editBtn = findViewById(R.id.buttonProfileInformation);
         editBtn.setOnClickListener(v -> {

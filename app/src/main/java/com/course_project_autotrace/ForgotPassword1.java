@@ -50,7 +50,7 @@ public class ForgotPassword1 extends AppCompatActivity {
         bckButton.setOnClickListener(v-> {
 
             //  code for Forgotpassword clicked
-            Intent intent = new Intent(ForgotPassword1.this, Loginji.class);
+            Intent intent = new Intent(ForgotPassword1.this, LoginScreen.class);
             startActivity(intent);
 
         });
@@ -65,7 +65,7 @@ public class ForgotPassword1 extends AppCompatActivity {
                 .addOnSuccessListener(unused -> {
                     // Reset email sent successfully. Handle your success case here if needed.
                     Toast.makeText(ForgotPassword1.this,"Reset Password Link has been sent to your registered Email",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ForgotPassword1.this, Loginji.class);
+                    Intent intent = new Intent(ForgotPassword1.this, LoginScreen.class);
                     startActivity(intent);
                     finish();
                 })
