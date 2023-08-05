@@ -13,11 +13,6 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        ImageButton basicCarInfoBtn = findViewById(R.id.CarInfoBtn);
-        basicCarInfoBtn.setOnClickListener(v -> {
-            Intent intent2 = new Intent(HomeScreen.this, BasicCarInfo.class);
-            startActivity(intent2);
-        });
 
         ImageButton registerNewCarBtn = findViewById(R.id.AddBtn);
         registerNewCarBtn.setOnClickListener(v -> {

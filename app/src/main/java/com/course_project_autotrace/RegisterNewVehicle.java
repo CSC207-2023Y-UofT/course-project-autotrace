@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +30,12 @@ public class RegisterNewVehicle extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_new_vehicle);
+
+        ImageButton basicCarInfoBtn = findViewById(R.id.BackBtn);
+        basicCarInfoBtn.setOnClickListener(v -> {
+            Intent intent2 = new Intent(RegisterNewVehicle.this, HomeScreen.class);
+            startActivity(intent2);
+        });
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
@@ -55,7 +62,7 @@ public class RegisterNewVehicle extends AppCompatActivity {
                     }
 
                     if (car != null) {
-                        referenceToUsers.child(userID).child(Objects.requireNonNull(car.getKey())).setValue(car.getValue()).addOnSuccessListener(aVoid -> {
+                        referenceToUsers.child(userID).child("Cars").child(Objects.requireNonNull(car.getKey())).setValue(car.getValue()).addOnSuccessListener(aVoid -> {
                             Toast.makeText(RegisterNewVehicle.this, "Car added successfully", Toast.LENGTH_LONG).show();
                             // Here you can also navigate to another activity if needed
                         }).addOnFailureListener(e -> Toast.makeText(RegisterNewVehicle.this, "Failed to add car in the database", Toast.LENGTH_LONG).show());
