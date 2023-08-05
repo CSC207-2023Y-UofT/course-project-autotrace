@@ -55,7 +55,7 @@ public class RegisterNewVehicle extends AppCompatActivity {
                     }
 
                     if (car != null) {
-                        referenceToUsers.child(userID).child(Objects.requireNonNull(car.getKey())).setValue(car.getValue()).addOnSuccessListener(aVoid -> {
+                        referenceToUsers.child(userID).child("Cars").child(Objects.requireNonNull(car.getKey())).setValue(car.getValue()).addOnSuccessListener(aVoid -> {
                             Toast.makeText(RegisterNewVehicle.this, "Car added successfully", Toast.LENGTH_LONG).show();
                             // Here you can also navigate to another activity if needed
                         }).addOnFailureListener(e -> Toast.makeText(RegisterNewVehicle.this, "Failed to add car in the database", Toast.LENGTH_LONG).show());
