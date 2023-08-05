@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +30,12 @@ public class RegisterNewVehicle extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_new_vehicle);
+
+        ImageButton basicCarInfoBtn = findViewById(R.id.BackBtn);
+        basicCarInfoBtn.setOnClickListener(v -> {
+            Intent intent2 = new Intent(RegisterNewVehicle.this, HomeScreen.class);
+            startActivity(intent2);
+        });
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
