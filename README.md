@@ -61,4 +61,4 @@ The primary motivation behind AutoTrace is to offer a convenient solution for us
 
 ## Getting Started
 
-To use AutoTrace, simply download and install the app on your Android device. If you're an administrator, make sure to log in with your credentials to access registration features. For regular users, basic information can be accessed without signing up. Enjoy the seamless experience of accessing vehicle details with just a license plate number!
+To use AutoTrace, simply sign up for an account once you open the app. Once you have an account, you can register your new vehicles and if you get a parking violation, it will show up on your account. You can also customize your profile from the profile page. If you made an account and forgot your password, you can reset that too.
