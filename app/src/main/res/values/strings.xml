@@ -51,4 +51,10 @@
     <string name="enter_your_full_name">Enter your full name</string>
     <string name="create_your_account">Create Your Account</string>
     <string name="let_s_go">Let\'s Go</string>
+    <string name="driver_s_license">Driver\'s License</string>
+    <string name="enter_your_driver_s_license">Enter your Driver\'s License</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
 </resources>

@@ -2,6 +2,7 @@ package com.course_project_autotrace;
 
 
 public class UserAccount {
+
     public UserAccount() {
     }
 
@@ -43,7 +44,18 @@ public class UserAccount {
         return fullName;
     }
 
+    public String getDriverLicense() {
+        return DriverLicense;
+    }
+
+    public void setDriverLicense(String DriverLicense) {
+        this.DriverLicense = DriverLicense;
+    }
+
+    private String DriverLicense;
+
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
 }
