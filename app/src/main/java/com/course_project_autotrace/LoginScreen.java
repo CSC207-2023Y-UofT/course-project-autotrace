@@ -9,10 +9,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 //import org.w3c.dom.Text;
 
@@ -20,6 +27,11 @@ public class LoginScreen extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth; // for firebase autheniation
     private EditText mEtEmail; //for edit text.
     private EditText mEtPwd;
+    public EditText licenseNum;
+    private DatabaseReference referenceToCars;
+    private DataSnapshot car;
+    public String carName, model,info;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -74,12 +86,38 @@ public class LoginScreen extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button continueBt2 = findViewById(R.id.continueBtn2);
-        continueBt2.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginScreen.this, BasicCarInfo.class);
-            startActivity(intent);
-        });
+        // Basic Car info code
+        licenseNum = findViewById(R.id.edit_licensePlate);
+        Button continue2 = findViewById(R.id.continueBtn2);
+        continue2.setOnClickListener(v -> {
+            final String enteredLicensePlate = licenseNum.getText().toString();
 
+            referenceToCars.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                        if (Objects.equals(snapshot.getKey(), enteredLicensePlate)){
+                            car = snapshot;
+                        }
+                    }
+
+                    if (car == null) {
+                        Toast.makeText(LoginScreen.this, "Car does not exist in the database", Toast.LENGTH_LONG).show();
+                    }
+                    carName = String.valueOf(car.child("Name").getValue());
+                    model = String.valueOf(car.child("Model"));
+                    info = String.valueOf(car.child("Insurance"));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            Intent intent = new Intent(LoginScreen.this, BasicCarInfo.class);  // Assuming your Home screen is HomeScreenActivity
+            startActivity(intent);
+            finish();
+        });
     }
 
 
