@@ -1,6 +1,6 @@
 # AutoTrace
 
-AutoTrace is an Android app designed to provide users with essential vehicle information by inputting their license plate. It offers a simple and efficient way to retrieve car model and registration date data as well as view traffic ticket violations from relevant databases. Additionally, it allows Users to register vehicles into the system, with an associated driver name and License Plates.
+AutoTrace is an all-in-one Android application designed to keep drivers informed and responsible. By logging in to their accounts, users can effortlessly access a wealth of information including their up-to-date traffic violations, ensuring they never miss a ticket payment. Additionally, the app provides real-time insurance information such as provider details and premium status. AutoTrace also offers insights into basic vehicle information like car model, registration year and insurance provider by just inputing a license plate number without logging in. Its unique feature of registering vehicles from the centralized database of cars with associated driver's name and license plates further enhances the personalized user experience, making AutoTrace an essential tool for every driver.
 
 ## Motivation
 
