@@ -16,14 +16,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 //import org.w3c.dom.Text;
 
-public class Loginji extends AppCompatActivity {
+public class LoginScreen extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth; // for firebase autheniation
     private EditText mEtEmail; //for edit text.
     private EditText mEtPwd;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loginji);
+        setContentView(R.layout.activity_login_screen);
         mFirebaseAuth = FirebaseAuth.getInstance();
         //for realtime database.
         FirebaseDatabase.getInstance().getReference();
@@ -44,39 +44,39 @@ public class Loginji extends AppCompatActivity {
 
             // Check if the email or password fields are empty
             if(strEmail.isEmpty() || strPwd.isEmpty()){
-                Toast.makeText(Loginji.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginScreen.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
                 return;  // stop further execution if fields are empty
             }
 
-            mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(Loginji.this, task -> {
+            mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(LoginScreen.this, task -> {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(Loginji.this,HomeScreen.class);
+                    Intent intent = new Intent(LoginScreen.this,HomeScreen.class);
                     startActivity(intent);
                     finish();
                 }else{
-                    Toast.makeText(Loginji.this, "Failed login", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginScreen.this, "Failed login", Toast.LENGTH_SHORT).show();
                 }
             });
         });
 
-//        startActivity(new Intent(Loginji.this, Signup.class));
+//        startActivity(new Intent(LoginScreen.this, Signup.class));
         textViewForgotpwd.setOnClickListener(v-> {
 
                 //  code for Forgotpassword clicked
-                Intent intent = new Intent(Loginji.this, ForgotPassword1.class);
+                Intent intent = new Intent(LoginScreen.this, ForgotPassword1.class);
                 startActivity(intent);
 
         });
 
         textViewSignUp.setOnClickListener(v -> {
             // Your existing code for textViewSignUp click
-            Intent intent = new Intent(Loginji.this, Signup.class);
+            Intent intent = new Intent(LoginScreen.this, Signup.class);
             startActivity(intent);
         });
 
         Button continueBt2 = findViewById(R.id.continueBtn2);
         continueBt2.setOnClickListener(v -> {
-            Intent intent = new Intent(Loginji.this, BasicCarInfo.class);
+            Intent intent = new Intent(LoginScreen.this, BasicCarInfo.class);
             startActivity(intent);
         });
 
