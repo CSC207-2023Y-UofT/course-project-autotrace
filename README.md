@@ -1,64 +1,81 @@
 # AutoTrace
 
-AutoTrace is an Android app designed to provide users with essential information about vehicles by inputting their license plate numbers. It offers a simple and efficient way to retrieve car model and registration date data from relevant databases. Additionally, it provides administrators with the ability to register license plates into the system, along with associated driver and car information.
+AutoTrace is an Android app designed to provide users with essential vehicle information by inputting their license plate. It offers a simple and efficient way to retrieve car model and registration date data as well as view traffic ticket violations from relevant databases. Additionally, it allows Users to register vehicles into the system, with an associated driver name and License Plates.
 
 ## Motivation
 
-The primary motivation behind AutoTrace is to offer a convenient solution for users who need to identify car models and registration dates based on license plate numbers. This app aims to streamline the process of accessing vehicle information by leveraging databases and providing an intuitive user interface.
+We aimed to create an app that works as a centralized system for displaying issued traffic tickets. The app displays information about each car, such as insurance provider. Another app feature is verifying ownership details by looking up any vehicle registered by the license plate in the database. Users can create an account to register their cars and view filed traffic tickets.
 
 ## Features
 
-- License Plate Search: Users can input a license plate number and retrieve the corresponding car model and registration date.
-- User Registration: Administrators have the option to register new license plates into the system along with driver and car information.
-- Secure Authentication: The app provides secure login functionality for both regular users and administrators to access their respective features.
-- Vehicle Information: Users can view detailed information about previously registered vehicles, including insurance details.
+- Access Basic Car Information: Users can input a license plate number and retrieve the corresponding car model and registration date.
+- Vehicle Registration: Users register vehicles under their account by providing information (Vehicles/License Plates have to already exist in the database).
+- User Log In: Returning Users are able to Log in to their previously created accounts to view their User-specific Information.
+- User Registration: Users can create new accounts by providing their emails and creating a password
+- Vehicle Information: Users can view detailed information about registered vehicles, such as Models and Insurance Details.
 - Traffic Violations: Users can check for any traffic violation tickets associated with a particular vehicle, displaying relevant details such as amount payable, issue date, intersection, and violation description.
+- Navigation Bar: Provides an accessible way for Users to navigate between different screens
 
-## Scenario Walkthrough
+## Scenario Walkthroughs
 
-### License Plate Search
-1. User opens the AutoTrace Android app and launches the license plate search feature.
-2. They enter the license plate number into the provided input field and tap on the "Search" button.
-3. The app processes the input and queries the relevant databases based on the user's access key.
+### Access Basic Information
+1. User opens the AutoTrace Android app
+2. User enters the license plate number into the input field under the Log-In section and taps on the "Continue" button.
+3. The app processes the input and queries the relevant databases based.
 4. The app retrieves the car model and registration date associated with the provided license plate number.
-5. Finally, the app displays the car model and registration date on the user interface, allowing the user to view the information.
+5. Finally, the app displays the car model and registration date on the user interface, allowing the user to view a limited amount of information.
+<img width="268" alt="Screenshot 2023-08-04 at 10 07 27 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/d0ab10c0-5991-48f7-9c0f-de599393fb5f">
 
-### Vehicle Registration (Admin)
-1. The administrator logs into the AutoTrace Android app with their credentials to access the registration section.
-2. They input the license plate number, driver details, and car information into the provided fields.
-3. After filling in the required information, the administrator taps on the "Register" button to submit the details.
-4. The app receives the registration information and validates it.
-5. If the information is valid, the app stores the license plate, driver, and car information in the database.
-6. The administrator receives a confirmation message indicating successful registration, and the newly registered information is now accessible within the system.
+### Vehicle Registration 
+1. User logs into the AutoTrace app using their email and password.
+2. User taps the plus button on the Dashboard/Home Screen, which redirects to the vehicle registration screen.
+3. User inputs the license plate number, Last Name, and Date of Birth into the provided fields.
+4. After filling in the required information, the administrator taps on the "Register" button to submit the details.
+5. Information is then verified based on if the vehicle exists in the database.
+6. If the information is valid, the vehicle is registered under the User's Account and is now viewable from the dashboard.
+<img width="270" alt="Screenshot 2023-08-04 at 11 08 57 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/b434e074-2a40-42c7-aa5c-2e788c722038">
 
-### Viewing Vehicle Information
+### Viewing RegistedVehicle Information
 1. User logs in with their email and password.
 2. They are directed to the home screen, where they can view different previously registered vehicles.
-3. The user selects a specific vehicle and can access the car information screen, which may include insurance details.
+3. The user selects a specific vehicle and can access the car information screen, which includes insurance Provider, Car Model/Year, and Owner.
 
 ### Checking Traffic Violations
 1. User logs in with their email and password.
-2. They are directed to the home screen, where they can view different vehicles.
-3. The user presses the traffic violation icon in the bottom bar.
-4. They are taken to the traffic violations page, displaying various tickets with details such as amount payable, date ticket was issued, the intersection where the violation occurred, and a description of the violation (e.g., parking ticket, traffic light violation).
+2. They are directed to the home screen.
+3. The user presses the traffic violation icon in the navigation bar.
+4. They are taken to the traffic violations page, displaying various tickets with details such as the amount payable, date the ticket was issued, the intersection where the violation occurred, and a description of the violation (e.g., parking ticket, traffic light violation).
+<img width="287" alt="Screenshot 2023-08-04 at 11 18 05 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/c0166df5-a3dc-4cbc-a993-7bdccba191c8">
 
-### Registering a New Vehicle
-1. User logs in with their email and password.
-2. They are directed to the home screen, where they can view different previously registered vehicles.
-3. The user presses the plus button (new vehicle registration button).
-4. They proceed to register a new vehicle by inputting the License Plate, Last Name, and Date of Birth.
-5. Once the information is input, the user views a vehicle registration confirmation screen, confirming the successful registration if the information is valid and meets the requirements.
+### User Log In
+1. User launches the application
+2. User prompted with the splash screen
+3. User inputs their email and password
+4. Directed to home Screen
+<img width="271" alt="Screenshot 2023-08-04 at 10 07 15 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/0164d4d5-bd00-4db5-9968-7ce585b690db">
 
-### Accessing Basic Information Screen (Guest Login)
-1. A user can access the basic information screen by inputting a license plate number without logging in.
-2. The user views basic car information associated with the inputted license plate number.
 
 ### User Registration
-1. User presses the sign-up button and inputs their email, password, and password confirmation.
-2. The user receives a verification email with a four-digit code.
-3. They input the four-digit code into the verification field.
-4. The user views a verification success pop-up confirming their successful registration.
+1. User presses the sign-up button upon launching the app
+2. User inputs their email, password, and password confirmation.
+3. The user views a verification success pop-up confirming their successful registration.
 
-## Getting Started
+### Reset Password
+1. User presses the Forgot Password button upon launching the app
+2. User inputs their email.
+3. An email is sent to the user's email containing a reset password link.
+4. User clicks the link, inputs their new password
+5. User's password is updated in the database
+<img width="286" alt="Screenshot 2023-08-04 at 11 32 15 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/476760e7-4298-40f6-a966-9fa9d0908b2c">
 
-To use AutoTrace, simply sign up for an account once you open the app. Once you have an account, you can register your new vehicles and if you get a parking violation, it will show up on your account. You can also customize your profile from the profile page. If you made an account and forgot your password, you can reset that too.
+
+### Team Roles
+
+- Haris
+
+- Diler
+
+- Ji
+
+- Milan
+
