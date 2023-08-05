@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,14 +31,18 @@ public class TrafficViolations extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traffic_violations);
-
         ImageButton refreshBtn = findViewById(R.id.refreshBtn);
+        TextView violationNameTextView = findViewById(R.id.headingTextView);
+        TextView IssueTextView = findViewById(R.id.subheadingTextView);
+        TextView FineTextView = findViewById(R.id.amountPayable);
+        TextView LocationTextView = findViewById(R.id.descriptionTextView);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
         userID = user.getUid();
         referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccount");
         referenceToViolations = FirebaseDatabase.getInstance().getReference().child("TrafficViolations");
+
         referenceToUsers.child(userID).child("driverLicense").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -50,7 +56,6 @@ public class TrafficViolations extends AppCompatActivity {
             }
         });
 
-
         refreshBtn.setOnClickListener(v -> referenceToViolations.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -61,12 +66,16 @@ public class TrafficViolations extends AppCompatActivity {
                 }
 
                 if (violations != null) {
+                    // Set the retrieved data
+                    violationNameTextView.setText(violations.child("Violation").getValue(String.class));
+                    IssueTextView.setText(violations.child("Issue Date").getValue(String.class));
+                    FineTextView.setText(violations.child("Fine").getValue(String.class));
+                    LocationTextView.setText(violations.child("Location").getValue(String.class));
+
                     referenceToUsers.child(userID).child("Violations").child(Objects.requireNonNull(violations.getKey())).setValue(violations.getValue()).addOnSuccessListener(aVoid -> {
                         Toast.makeText(TrafficViolations.this, "New Traffic Violations Found", Toast.LENGTH_LONG).show();
-                        // Here you can also navigate to another activity if needed
                     }).addOnFailureListener(e -> Toast.makeText(TrafficViolations.this, "Failed to find traffic violations in the database", Toast.LENGTH_LONG).show());
-                }
-                else{
+                } else {
                     Toast.makeText(TrafficViolations.this, "No Traffic Violations Found", Toast.LENGTH_LONG).show();
                 }
             }
@@ -77,13 +86,12 @@ public class TrafficViolations extends AppCompatActivity {
             }
         }));
 
-
-
         ImageButton backBtn = findViewById(R.id.BackBtn);
         backBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(TrafficViolations.this, HomeScreen.class);
-            startActivity(intent);
+            Intent intent2 = new Intent(TrafficViolations.this, TrafficViolations.class);
+            startActivity(intent2);
         });
+
         ImageButton violationBtn = findViewById(R.id.violationBtn);
         violationBtn.setOnClickListener(v -> {
             Intent intent3 = new Intent(TrafficViolations.this, TrafficViolations.class);
@@ -106,8 +114,6 @@ public class TrafficViolations extends AppCompatActivity {
             Intent intent2 = new Intent(TrafficViolations.this, HomeScreen.class);
             startActivity(intent2);
         });
-
-
 
     }
 }
