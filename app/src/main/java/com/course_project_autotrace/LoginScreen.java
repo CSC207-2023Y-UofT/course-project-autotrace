@@ -30,7 +30,7 @@ public class LoginScreen extends AppCompatActivity {
     public EditText licenseNum;
     private DatabaseReference referenceToCars;
     private DataSnapshot car;
-    public String carName, model,info;
+    public String carName, model,info, insurance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -87,6 +87,7 @@ public class LoginScreen extends AppCompatActivity {
         });
 
         // Basic Car info code
+        referenceToCars = FirebaseDatabase.getInstance().getReference().child("Cars");
         licenseNum = findViewById(R.id.edit_licensePlate);
         Button continue2 = findViewById(R.id.continueBtn2);
         continue2.setOnClickListener(v -> {
@@ -104,9 +105,23 @@ public class LoginScreen extends AppCompatActivity {
                     if (car == null) {
                         Toast.makeText(LoginScreen.this, "Car does not exist in the database", Toast.LENGTH_LONG).show();
                     }
-                    carName = String.valueOf(car.child("Name").getValue());
-                    model = String.valueOf(car.child("Model"));
-                    info = String.valueOf(car.child("Insurance"));
+                    else{
+                        carName = String.valueOf(car.child("Name").getValue());
+                        model = String.valueOf(car.child("Model").getValue());
+                        info = String.valueOf(car.child("Insurance").getValue());
+                        insurance = String.valueOf(car.child("Insurance").getKey());
+                        // Start the BasicCarInfo activity after data has been loaded
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(LoginScreen.this, BasicCarInfo.class);
+                            intent.putExtra("carName", carName);
+                            intent.putExtra("model", model);
+                            intent.putExtra("info", info);
+                            intent.putExtra("insurance", insurance);
+                            startActivity(intent);
+                            finish();
+                        });
+                    }
+
                 }
 
                 @Override
@@ -114,9 +129,6 @@ public class LoginScreen extends AppCompatActivity {
 
                 }
             });
-            Intent intent = new Intent(LoginScreen.this, BasicCarInfo.class);  // Assuming your Home screen is HomeScreenActivity
-            startActivity(intent);
-            finish();
         });
     }
 
