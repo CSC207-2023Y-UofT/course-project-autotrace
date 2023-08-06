@@ -1,14 +1,12 @@
 package com.course_project_autotrace.BasicCarInfo;
 
 import android.content.Intent;
-import com.course_project_autotrace.BasicCarInfo.CarEntity;
-import com.course_project_autotrace.BasicCarInfo.FetchCarInfoUseCase;
 
 public class BasicCarInfoPresenter {
 
     // variable for presenter class
-    private BasicCarInfoView carView;
-    private FetchCarInfoUseCase fetchInfoUseCase;
+    private final BasicCarInfoView carView;
+    private final FetchCarInfoUseCase fetchInfoUseCase;
 
     // Constructor for BasicCarInfoFectchPresenter
     public BasicCarInfoPresenter(BasicCarInfoView carView, FetchCarInfoUseCase fetchInfoUseCase){

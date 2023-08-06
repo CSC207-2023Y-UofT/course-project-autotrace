@@ -1,11 +1,6 @@
 package com.course_project_autotrace.BasicCarInfo;
 
-
 import android.content.Intent;
-import com.course_project_autotrace.BasicCarInfo.CarEntity;
-import com.course_project_autotrace.BasicCarInfo.BasicCarInfoPresenter;
-import com.course_project_autotrace.BasicCarInfo.BasicCarInfoView;
-import com.course_project_autotrace.BasicCarInfo.FetchCarInfoUseCase;
 import com.course_project_autotrace.Login.LoginScreen;
 import com.course_project_autotrace.R;
 import android.os.Bundle;
