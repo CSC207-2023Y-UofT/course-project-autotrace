@@ -1,10 +1,12 @@
-package com.course_project_autotrace;
+package com.course_project_autotrace.UserProfile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+
+import com.course_project_autotrace.R;
 
 public class EditProfileScreen extends AppCompatActivity {
 

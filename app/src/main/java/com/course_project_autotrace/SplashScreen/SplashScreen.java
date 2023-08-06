@@ -1,4 +1,4 @@
-package com.course_project_autotrace;
+package com.course_project_autotrace.SplashScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.course_project_autotrace.Login.LoginScreen;
+import com.course_project_autotrace.R;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {

@@ -1,15 +1,18 @@
-package com.course_project_autotrace;
+package com.course_project_autotrace.TrafficViolations;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.course_project_autotrace.CarInformation.CarInfo;
+import com.course_project_autotrace.Hompage.HomeScreen;
+import com.course_project_autotrace.UserProfile.ProfileScreen;
+import com.course_project_autotrace.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

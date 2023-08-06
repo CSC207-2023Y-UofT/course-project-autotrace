@@ -13,25 +13,25 @@
         android:theme="@style/Theme.Courseprojectautotrace"
         tools:targetApi="31">
         <activity
-            android:name=".NotificationScreen"
+            android:name=".UserProfile.NotificationScreen"
             android:exported="false" />
         <activity
-            android:name=".EditProfileScreen"
+            android:name=".UserProfile.EditProfileScreen"
             android:exported="false" />
         <activity
-            android:name=".ProfileScreen"
+            android:name=".UserProfile.ProfileScreen"
             android:exported="false" />
         <activity
-            android:name=".TrafficViolations"
+            android:name=".TrafficViolations.TrafficViolations"
             android:exported="false" />
         <activity
-            android:name=".CarInfo"
+            android:name=".CarInformation.CarInfo"
             android:exported="false" />
         <activity
-            android:name=".ForgotPassword1"
+            android:name=".ForgotPassword.ForgotPassword1"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".SplashScreen.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
@@ -45,27 +45,27 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginScreen"
+            android:name=".Login.LoginScreen"
             android:exported="true" />
         <activity
-            android:name=".Signup"
+            android:name=".Signup.Signup"
             android:exported="false" />
         <activity
-            android:name=".HomeScreen"
+            android:name=".Hompage.HomeScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".BasicCarInfo"
+            android:name=".BasicCarInfo.BasicCarInfo"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".RegisterNewVehicle"
+            android:name=".RegisterNewVehicle.RegisterNewVehicle"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

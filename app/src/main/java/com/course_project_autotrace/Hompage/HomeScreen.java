@@ -1,10 +1,16 @@
-package com.course_project_autotrace;
+package com.course_project_autotrace.Hompage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+
+import com.course_project_autotrace.CarInformation.CarInfo;
+import com.course_project_autotrace.UserProfile.ProfileScreen;
+import com.course_project_autotrace.R;
+import com.course_project_autotrace.RegisterNewVehicle.RegisterNewVehicle;
+import com.course_project_autotrace.TrafficViolations.TrafficViolations;
 
 public class HomeScreen extends AppCompatActivity {
 

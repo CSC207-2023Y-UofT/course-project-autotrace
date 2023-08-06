@@ -1,4 +1,4 @@
-package com.course_project_autotrace;
+package com.course_project_autotrace.UserProfile;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
@@ -10,6 +10,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.course_project_autotrace.CarInformation.CarInfo;
+import com.course_project_autotrace.Hompage.HomeScreen;
+import com.course_project_autotrace.Login.LoginScreen;
+import com.course_project_autotrace.R;
+import com.course_project_autotrace.TrafficViolations.TrafficViolations;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

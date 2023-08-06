@@ -1,4 +1,4 @@
-package com.course_project_autotrace;
+package com.course_project_autotrace.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.course_project_autotrace.BasicCarInfo.BasicCarInfo;
+import com.course_project_autotrace.ForgotPassword.ForgotPassword1;
+import com.course_project_autotrace.Hompage.HomeScreen;
+import com.course_project_autotrace.R;
+import com.course_project_autotrace.Signup.Signup;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -62,7 +67,7 @@ public class LoginScreen extends AppCompatActivity {
 
             mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(LoginScreen.this, task -> {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(LoginScreen.this,HomeScreen.class);
+                    Intent intent = new Intent(LoginScreen.this, HomeScreen.class);
                     startActivity(intent);
                     finish();
                 }else{
