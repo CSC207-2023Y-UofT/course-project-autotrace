@@ -1,4 +1,4 @@
-package com.course_project_autotrace;
+package com.course_project_autotrace.Signup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.course_project_autotrace.Login.LoginScreen;
+import com.course_project_autotrace.Login.UserAccount;
+import com.course_project_autotrace.R;
 import com.google.firebase.auth.FirebaseAuth; // Import FirebaseAuth
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
