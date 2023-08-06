@@ -7,6 +7,15 @@
     tools:context=".HomeScreen">
 
 
+    <!-- Heading -->
+
+        <!-- Subheading -->
+
+        <!-- Description -->
+
+        <!-- Penalty amount -->
+
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -23,18 +32,18 @@
         app:layout_goneMarginTop="20dp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="356dp"
-        android:layout_height="92dp"
+        android:id="@+id/linearLayout1"
+        android:layout_width="191dp"
+        android:layout_height="78dp"
         android:layout_gravity="center_vertical"
         android:background="@drawable/roundedrectangle"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167">
+        app:layout_constraintVertical_bias="0.163">
 
         <!-- Heading -->
         <TextView
@@ -56,6 +65,12 @@
             android:textSize="13sp" />
 
         <!-- Description -->
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/roundedrectangle" />
+
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
@@ -63,20 +78,6 @@
             android:text="@string/bloor_and_sherbourne"
             android:textColor="#546E7A"
             android:textSize="11sp" />
-
-        <!-- Penalty amount -->
-        <TextView
-            android:id="@+id/amountPayable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/_300"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
     <ImageView
@@ -177,6 +178,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.871"
         app:srcCompat="@drawable/refresh2" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="136dp"
+        android:layout_height="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.165"
+        app:srcCompat="@drawable/roundedrectangle" />
+
+    <TextView
+        android:id="@+id/amountPayable"
+        android:layout_width="81dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:text="@string/_300"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
