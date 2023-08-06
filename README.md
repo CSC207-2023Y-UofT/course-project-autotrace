@@ -24,7 +24,8 @@ We aimed to create an app that works as a centralized system for displaying issu
 3. The app processes the input and queries the relevant databases based.
 4. The app retrieves the car model and registration date associated with the provided license plate number.
 5. Finally, the app displays the car model and registration date on the user interface, allowing the user to view a limited amount of information.
-![Screenshot_20230805_222451](https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/6fa22114-5a87-40f9-ad8d-479d72ae648d)
+<img width="190" alt="Screenshot 2023-08-05 at 10 48 58 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/20fe6d5a-fed3-42fd-b5f7-38d101f6d954">
+
 
 ### Vehicle Registration 
 1. User logs into the AutoTrace app using their email and password.
@@ -33,32 +34,37 @@ We aimed to create an app that works as a centralized system for displaying issu
 4. After filling in the required information, the administrator taps on the "Register" button to submit the details.
 5. Information is then verified based on if the vehicle exists in the database.
 6. If the information is valid, the vehicle is registered under the User's Account and is now viewable from the dashboard.
-![Screenshot_20230805_222124](https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/33fb14fb-add0-4e64-b0c6-3074b3266a9a)
+<img width="190" alt="Screenshot 2023-08-05 at 4 22 31 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/a9c25fbe-26f6-4a14-8d4a-4cf57426159d">
+
 
 ### Viewing RegistedVehicle Information
 1. User logs in with their email and password.
 2. They are directed to the home screen, where they can view different previously registered vehicles.
 3. The user selects a specific vehicle and can access the car information screen, which includes insurance Provider, Car Model/Year, and Owner.
+<img width="190" alt="Screenshot 2023-08-05 at 4 13 18 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/d80941e1-3613-4943-a484-5a6cc553f3d7">
 
 ### Checking Traffic Violations
 1. User logs in with their email and password.
 2. They are directed to the home screen.
 3. The user presses the traffic violation icon in the navigation bar.
 4. They are taken to the traffic violations page, displaying various tickets with details such as the amount payable, date the ticket was issued, the intersection where the violation occurred, and a description of the violation (e.g., parking ticket, traffic light violation).
-![Screenshot_20230805_222332](https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/fc453d0f-673a-4339-8eb5-8c7ec99c6503)
+<img width="190" alt="Screenshot 2023-08-05 at 10 48 04 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/d3c2a9dc-3f5f-4cb9-8c46-85fb34082a9b">
+
 
 ### User Log In
 1. User launches the application
 2. User prompted with the splash screen
 3. User inputs their email and password
 4. Directed to Home Screen
-![Screenshot_20230805_214759](https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/595d1673-76d1-48ec-af46-c028bd1f6d21)
+<img width="190" alt="Screenshot 2023-08-05 at 4 12 54 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/bea6fe9c-0e71-47ef-b785-4aebe3fe6c2c">
+
 
 ### User Registration
 1. User presses the sign-up button upon launching the app
 2. User inputs their email, password, and password confirmation.
 3. The user views a verification success pop-up confirming their successful registration.
-![Screenshot_20230805_221104](https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/22f52c32-e3aa-495a-ab5e-27e45984d1af)
+<img width="190" alt="Screenshot 2023-08-05 at 4 14 56 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/509f823d-bb2a-424d-a5f4-6b6c3f25a78c">
+
 
 ### Reset Password
 1. User presses the Forgot Password button upon launching the app
@@ -66,41 +72,42 @@ We aimed to create an app that works as a centralized system for displaying issu
 3. An email is sent to the user's email containing a reset password link.
 4. User clicks the link, inputs their new password
 5. User's password is updated in the database
-![Screenshot_20230805_221143](https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/a5b9208b-0223-4157-8afa-f552d0be5828)
+<img width="190" alt="Screenshot 2023-08-05 at 4 15 12 PM" src="https://github.com/CSC207-2023Y-UofT/course-project-autotrace/assets/95944688/e862ac40-2614-4a92-8654-e1421b5a97a2">
 
 
-### Team Roles
 
-- Haris
-(Scrum Master)
-Directed and Delegated Tasks
-Co-organized team meetings and assigned roles
-Set Up Firebase Database
-Worked on the frontend and backend of Access Basic Info, Sign Up,
-Traffic Violations, HomeScreen, Register New Vehicle Screen
-Refactored and repackaged the source code
-Worked on Readme
-Worked on Figma Designs
+### Team Roles:
 
-
-- Diler
-Co-organized Team Meetings
-Worked on Read Me
-Worked on Frontend for Splash, Traffic Violations, Access Basic Info,
-Log In Screens and backend work for homescreen as well
-Debugging the splash screen code
-Worked on Figma Designs
-
-- Ji
-Refactoring Code for Login Screen
-Worked on Frontend and Backend for
-Forgot Password, Sign Up, and Log In
-Worked on Figma Designs
+### Haris
+- (Scrum Master)
+- Directed and Delegated Tasks
+- Co-organized team meetings and assigned roles
+- Set Up Firebase Database
+- Worked on the frontend and backend of Access Basic Info, Sign Up,
+- Traffic Violations, HomeScreen, Register New Vehicle Screen
+- Refactored and repackaged the source code
+- Worked on Readme
+- Worked on Figma Designs
 
 
-- Milan
-Worked on Read Me
-Worked on Profile Screen
-Worked on Figma Designs
+### Diler
+- Co-organized Team Meetings
+- Worked on Read Me
+- Worked on Frontend for Splash, Traffic Violations, Access Basic Info,
+- Log In Screens and backend work for homescreen as well
+- Debugging the splash screen code
+- Worked on Figma Designs
+
+### Ji
+- Refactoring Code for Login Screen
+- Worked on Frontend and Backend for
+- Forgot Password, Sign Up, and Log In
+- Worked on Figma Designs
+
+
+### Milan
+- Worked on Read Me
+- Worked on Profile Screen
+- Worked on Figma Designs
 
 
