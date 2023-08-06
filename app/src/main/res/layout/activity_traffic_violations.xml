@@ -50,7 +50,7 @@
             android:id="@+id/headingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/red_light_violation"
+            android:text=""
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -60,7 +60,7 @@
             android:id="@+id/subheadingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/july_10_2023"
+            android:text=""
             android:textColor="#546E7A"
             android:textSize="13sp" />
 
@@ -69,13 +69,14 @@
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/description"
             app:srcCompat="@drawable/roundedrectangle" />
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bloor_and_sherbourne"
+            android:text=""
             android:textColor="#546E7A"
             android:textSize="11sp" />
     </LinearLayout>
@@ -171,32 +172,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:contentDescription="Refresh button"
+        android:contentDescription="@string/refresh_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.871"
-        app:srcCompat="@drawable/refresh2" />
+        app:srcCompat="@drawable/refresh2"
+        tools:ignore="RedundantDescriptionCheck" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="136dp"
         android:layout_height="76dp"
+        android:contentDescription="@string/navbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.165"
-        app:srcCompat="@drawable/roundedrectangle" />
+        app:srcCompat="@drawable/roundedrectangle"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/amountPayable"
         android:layout_width="81dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
-        android:text="@string/_300"
+        android:text=""
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"

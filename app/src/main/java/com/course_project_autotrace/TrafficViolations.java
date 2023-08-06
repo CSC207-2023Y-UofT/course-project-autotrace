@@ -72,9 +72,7 @@ public class TrafficViolations extends AppCompatActivity {
                     FineTextView.setText(violations.child("Fine").getValue(String.class));
                     LocationTextView.setText(violations.child("Location").getValue(String.class));
 
-                    referenceToUsers.child(userID).child("Violations").child(Objects.requireNonNull(violations.getKey())).setValue(violations.getValue()).addOnSuccessListener(aVoid -> {
-                        Toast.makeText(TrafficViolations.this, "New Traffic Violations Found", Toast.LENGTH_LONG).show();
-                    }).addOnFailureListener(e -> Toast.makeText(TrafficViolations.this, "Failed to find traffic violations in the database", Toast.LENGTH_LONG).show());
+                    referenceToUsers.child(userID).child("Violations").child(Objects.requireNonNull(violations.getKey())).setValue(violations.getValue()).addOnSuccessListener(aVoid -> Toast.makeText(TrafficViolations.this, "New Traffic Violations Found", Toast.LENGTH_LONG).show()).addOnFailureListener(e -> Toast.makeText(TrafficViolations.this, "Failed to find traffic violations in the database", Toast.LENGTH_LONG).show());
                 } else {
                     Toast.makeText(TrafficViolations.this, "No Traffic Violations Found", Toast.LENGTH_LONG).show();
                 }
@@ -84,6 +82,7 @@ public class TrafficViolations extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
         }));
 
         ImageButton backBtn = findViewById(R.id.BackBtn);
