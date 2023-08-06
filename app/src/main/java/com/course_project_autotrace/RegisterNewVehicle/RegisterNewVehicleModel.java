@@ -41,6 +41,9 @@ public class RegisterNewVehicleModel {
         });
     }
 
+    public void addCarToUser(String userID, DataSnapshot dataSnapshot, OnDatabaseUpdateListener onDatabaseUpdateListener) {
+    }
+
     // interface to listen if the car exists or not in the database
     public interface OnCarDatabaseCheckListener{
         void OnCarExistInDB(DataSnapshot dataSnapshot);
