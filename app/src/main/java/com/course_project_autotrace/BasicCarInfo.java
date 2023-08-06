@@ -24,6 +24,7 @@ public class BasicCarInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_car_info);
         Intent intent = getIntent();
+
         String carName = intent.getStringExtra("carName");
         String model = intent.getStringExtra("model");
         String info = intent.getStringExtra("info");
@@ -37,6 +38,8 @@ public class BasicCarInfo extends AppCompatActivity {
         modelYearTextView.setText(model);
         String formattedInfo = String.format("%s : %s", insurance, info);
         infoBoxTextView.setText(formattedInfo);
+
+
 
         ImageButton backBtn = findViewById(R.id.BackBtn);
         backBtn.setOnClickListener(v -> {
