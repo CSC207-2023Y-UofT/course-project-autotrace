@@ -1,18 +1,15 @@
 package com.course_project_autotrace.TrafficViolations;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import com.course_project_autotrace.CarInformation.CarInfo;
 import com.course_project_autotrace.Hompage.HomeScreen;
-import com.course_project_autotrace.UserProfile.ProfileScreen;
 import com.course_project_autotrace.R;
+import com.course_project_autotrace.UserProfile.ProfileScreen;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,28 +18,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
+public class TrafficViolations extends AppCompatActivity implements TrafficViolationsView {
 
-public class TrafficViolations extends AppCompatActivity {
-
-    private DataSnapshot violations;
-    private DatabaseReference referenceToUsers, referenceToViolations;
-    private String userID;
+    private TextView violationNameTextView, IssueTextView, FineTextView, LocationTextView;
+    private TrafficViolationsPresenter presenter;
     private String DriverLicense;
+    DatabaseReference referenceToUsers;
+    DatabaseReference referenceToViolations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traffic_violations);
-        ImageButton refreshBtn = findViewById(R.id.refreshBtn);
-        TextView violationNameTextView = findViewById(R.id.headingTextView);
-        TextView IssueTextView = findViewById(R.id.subheadingTextView);
-        TextView FineTextView = findViewById(R.id.amountPayable);
-        TextView LocationTextView = findViewById(R.id.descriptionTextView);
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
-        userID = user.getUid();
+        String userID = user.getUid();
         referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccount");
         referenceToViolations = FirebaseDatabase.getInstance().getReference().child("TrafficViolations");
 
@@ -51,71 +41,61 @@ public class TrafficViolations extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     DriverLicense = dataSnapshot.getValue(String.class);
+                    // Once DriverLicense is fetched, you can use it to fetch traffic violations.
+                    presenter.fetchDataForDriver(DriverLicense);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle the error
+                showError("Failed to fetch driver license.");
             }
         });
 
-        refreshBtn.setOnClickListener(v -> referenceToViolations.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    if (Objects.equals(snapshot.getKey(), DriverLicense)){
-                        violations = snapshot;
-                    }
-                }
 
-                if (violations != null) {
-                    // Set the retrieved data
-                    violationNameTextView.setText(violations.child("Violation").getValue(String.class));
-                    IssueTextView.setText(violations.child("Issue Date").getValue(String.class));
-                    FineTextView.setText(violations.child("Fine").getValue(String.class));
-                    LocationTextView.setText(violations.child("Location").getValue(String.class));
+        // UI Initialization
+        violationNameTextView = findViewById(R.id.headingTextView);
+        IssueTextView = findViewById(R.id.subheadingTextView);
+        FineTextView = findViewById(R.id.amountPayable);
+        LocationTextView = findViewById(R.id.descriptionTextView);
 
-                    referenceToUsers.child(userID).child("Violations").child(Objects.requireNonNull(violations.getKey())).setValue(violations.getValue()).addOnSuccessListener(aVoid -> Toast.makeText(TrafficViolations.this, "New Traffic Violations Found", Toast.LENGTH_LONG).show()).addOnFailureListener(e -> Toast.makeText(TrafficViolations.this, "Failed to find traffic violations in the database", Toast.LENGTH_LONG).show());
-                } else {
-                    Toast.makeText(TrafficViolations.this, "No Traffic Violations Found", Toast.LENGTH_LONG).show();
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        // Navigation Buttons Handlers
+        findViewById(R.id.BackBtn).setOnClickListener(v -> navigateTo(TrafficViolations.class));
+        findViewById(R.id.violationBtn).setOnClickListener(v -> navigateTo(TrafficViolations.class));
+        findViewById(R.id.profileBTN).setOnClickListener(v -> navigateTo(ProfileScreen.class));
+        findViewById(R.id.CarInfoBtn).setOnClickListener(v -> navigateTo(CarInfo.class));
+        findViewById(R.id.HomeButton).setOnClickListener(v -> navigateTo(HomeScreen.class));
 
-            }
+        // Model and Presenter Initialization
+        TrafficViolationsModel model = new TrafficViolationsModel();
+        presenter = new TrafficViolationsPresenter(this, model);
 
-        }));
+        // Fetch data
+        presenter.fetchDataForDriver(DriverLicense);
+    }
 
-        ImageButton backBtn = findViewById(R.id.BackBtn);
-        backBtn.setOnClickListener(v -> {
-            Intent intent2 = new Intent(TrafficViolations.this, TrafficViolations.class);
-            startActivity(intent2);
-        });
+    private void navigateTo(Class<?> targetClass) {
+        Intent intent = new Intent(TrafficViolations.this, targetClass);
+        startActivity(intent);
+    }
 
-        ImageButton violationBtn = findViewById(R.id.violationBtn);
-        violationBtn.setOnClickListener(v -> {
-            Intent intent3 = new Intent(TrafficViolations.this, TrafficViolations.class);
-            startActivity(intent3);
-        });
-        ImageButton profileBTN = findViewById(R.id.profileBTN);
-        profileBTN.setOnClickListener(v -> {
-            Intent intent3 = new Intent(TrafficViolations.this, ProfileScreen.class);
-            startActivity(intent3);
-        });
+    @Override
+    public void showTrafficViolationsData(DataSnapshot violations) {
+        violationNameTextView.setText(violations.child("Violation").getValue(String.class));
+        IssueTextView.setText(violations.child("Issue Date").getValue(String.class));
+        FineTextView.setText(violations.child("Fine").getValue(String.class));
+        LocationTextView.setText(violations.child("Location").getValue(String.class));
+    }
 
-        ImageButton CarInfoB = findViewById(R.id.CarInfoBtn);
-        CarInfoB.setOnClickListener(v -> {
-            Intent intent2 = new Intent(TrafficViolations.this, CarInfo.class);
-            startActivity(intent2);
-        });
+    @Override
+    public void showError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+    }
 
-        ImageButton HomeBtn = findViewById(R.id.HomeButton);
-        HomeBtn.setOnClickListener(v -> {
-            Intent intent2 = new Intent(TrafficViolations.this, HomeScreen.class);
-            startActivity(intent2);
-        });
-
+    @Override
+    public void showNoViolations() {
+        //Toast.makeText(this, "No Traffic Violations Found", Toast.LENGTH_LONG).show();
     }
 }

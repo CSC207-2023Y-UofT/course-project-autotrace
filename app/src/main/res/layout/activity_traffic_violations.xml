@@ -167,20 +167,6 @@
         app:srcCompat="@drawable/backarrow"
         tools:ignore="RedundantDescriptionCheck" />
 
-    <ImageButton
-        android:id="@+id/refreshBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/refresh_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871"
-        app:srcCompat="@drawable/refresh2"
-        tools:ignore="RedundantDescriptionCheck" />
-
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="136dp"

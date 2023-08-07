@@ -5,21 +5,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.course_project_autotrace.CarInformation.CarInfo;
+import com.course_project_autotrace.ForgotPassword.ForgotPassword1;
 import com.course_project_autotrace.Hompage.HomeScreen;
+import com.course_project_autotrace.Login.LoginScreen;
 import com.course_project_autotrace.R;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.FirebaseAuth;
+
 
 
 public class RegisterNewVehicle extends AppCompatActivity implements RegisterNewVehicleInterface.View {
     private RegisterNewVehiclePresenter carPresenter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_new_vehicle);
+
+        ImageButton backBtn = findViewById(R.id.BackBtn);
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterNewVehicle.this, HomeScreen.class);
+            startActivity(intent);
+        });
 
 
         Button registerVehicleBtn = findViewById(R.id.RegisterBtn);
@@ -54,5 +65,6 @@ public class RegisterNewVehicle extends AppCompatActivity implements RegisterNew
         Toast.makeText(this, "Car does not exist in the database", Toast.LENGTH_LONG).show();
 
     }
+
 
 }
