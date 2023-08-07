@@ -1,47 +1,51 @@
 package com.course_project_autotrace.BasicCarInfo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import com.course_project_autotrace.Login.LoginScreen;
+import com.course_project_autotrace.R;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.course_project_autotrace.Login.LoginScreen;
-import com.course_project_autotrace.R;
 
-public class BasicCarInfo extends AppCompatActivity {
+public class BasicCarInfo extends AppCompatActivity implements BasicCarInfoView {
+    private BasicCarInfoPresenter BasicPresenter;
+    private TextView infoBoxTextView, carNameTextview, modelYearTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basic_car_info);
-        Intent intent = getIntent();
+        setContentView((R.layout.activity_basic_car_info));
 
-        String carName = intent.getStringExtra("carName");
-        String model = intent.getStringExtra("model");
-        String info = intent.getStringExtra("info");
-        String insurance = intent.getStringExtra("insurance");
+        // link the textviews with the respective ids from the resource xml
+        modelYearTextView = findViewById(R.id.ModelYear);
+        carNameTextview = findViewById(R.id.CarName);
+        infoBoxTextView = findViewById(R.id.InfoBox);
 
-        TextView carNameTextView = findViewById(R.id.CarName);
-        TextView modelYearTextView = findViewById(R.id.ModelYear);
-        TextView infoBoxTextView = findViewById(R.id.InfoBox);
+        // Fetch the car info
+        FetchCarInfoUseCase fetchInfoUseCase = new FetchCarInfoUseCase();
+        BasicPresenter = new BasicCarInfoPresenter(this, fetchInfoUseCase);
+        BasicPresenter.loadCarInfo(getIntent());
 
-        carNameTextView.setText(carName);
-        modelYearTextView.setText(model);
-        String formattedInfo = String.format("%s : %s", insurance, info);
-        infoBoxTextView.setText(formattedInfo);
+        // back button to navigate back to the LoginScreen
+        ImageButton BackBtn = findViewById(R.id.BackBtn);
+        BackBtn.setOnClickListener(v -> BasicPresenter.handleBackClicked());
+    }
 
+    @Override
+    public void displayCarDetails(CarEntity.Car car) {
+        modelYearTextView.setText(car.getModel());
+        carNameTextview.setText(car.getName());
 
+        String InfoFormat = String.format("%s : %s", car.getInsurance(), car.getInfo());
+        infoBoxTextView.setText(InfoFormat);
+    }
 
-        ImageButton backBtn = findViewById(R.id.BackBtn);
-        backBtn.setOnClickListener(v -> {
-            Intent intent2 = new Intent(BasicCarInfo.this, LoginScreen.class);
-            startActivity(intent2);
-        });
-
-
-
+    @Override
+    public void navigateToLoginScreen() {
+        Intent newIntent = new Intent(BasicCarInfo.this, LoginScreen.class);
+        startActivity(newIntent);
 
     }
 }

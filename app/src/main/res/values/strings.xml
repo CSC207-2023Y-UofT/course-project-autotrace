@@ -61,4 +61,6 @@
     <string name="refresh_button">Refresh button</string>
     <string name="description">Description</string>
     <string name="navbar">NavBar</string>
+    <string name="enter_your_email2">Enter Your Email</string>
+    <string name="enter_your_email1">Enter Your Email</string>
 </resources>
