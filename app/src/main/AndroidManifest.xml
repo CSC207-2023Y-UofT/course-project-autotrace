@@ -13,6 +13,39 @@
         android:theme="@style/Theme.Courseprojectautotrace"
         tools:targetApi="31">
         <activity
+            android:name=".ForgotPassword.ForgotPassword1View"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword.ForgotPassword1Presenter"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword.ForgotPassword1Model"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginPresenters.CarInfoPresenter"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginPresenters.LoginPresenter"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginViews.CarInfoView"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginViews.LoginView"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginModel.Car"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginModel.User"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginView"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginModel"
+            android:exported="false" />
+        <activity
             android:name=".UserProfile.NotificationScreen"
             android:exported="false" />
         <activity
