@@ -18,10 +18,7 @@ import java.util.Objects;
  */
 public class TrafficViolationsModel {
 
-    /**
-     * Callback interface to handle data load events.
-     */
-    interface OnDataLoaded {
+    public interface OnDataLoaded {
         /**
          * Called when traffic violations data is successfully loaded.
          *
