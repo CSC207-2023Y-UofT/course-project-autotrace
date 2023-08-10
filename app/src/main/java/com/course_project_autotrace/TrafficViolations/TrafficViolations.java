@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.course_project_autotrace.CarInformation.CarInfo;
 import com.course_project_autotrace.Hompage.HomeScreen;
 import com.course_project_autotrace.R;
-import com.course_project_autotrace.UserProfile.ProfileScreen;
+import com.course_project_autotrace.UserProfile.ProfileView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -64,7 +64,7 @@ public class TrafficViolations extends AppCompatActivity implements TrafficViola
         // Navigation Buttons Handlers
         findViewById(R.id.BackBtn).setOnClickListener(v -> navigateTo(TrafficViolations.class));
         findViewById(R.id.violationBtn).setOnClickListener(v -> navigateTo(TrafficViolations.class));
-        findViewById(R.id.profileBTN).setOnClickListener(v -> navigateTo(ProfileScreen.class));
+        findViewById(R.id.profileBTN).setOnClickListener(v -> navigateTo(ProfileView.class));
         findViewById(R.id.CarInfoBtn).setOnClickListener(v -> navigateTo(CarInfo.class));
         findViewById(R.id.HomeButton).setOnClickListener(v -> navigateTo(HomeScreen.class));
 
