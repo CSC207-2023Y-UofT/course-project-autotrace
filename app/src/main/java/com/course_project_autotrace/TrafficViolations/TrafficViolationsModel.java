@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class TrafficViolationsModel {
 
-    interface OnDataLoaded {
+    public interface OnDataLoaded {
         void onDataLoaded(DataSnapshot violations);
         void onError(String error);
     }
