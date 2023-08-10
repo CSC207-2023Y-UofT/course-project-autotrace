@@ -1,21 +1,55 @@
 package com.course_project_autotrace.ForgotPassword;
-public class ForgotPassword1Presenter implements ForgotPassword1Model.ResetPassword1Listener{
-    private ForgotPassword1View FPview;
-    private ForgotPassword1Model FPmodel;
-    public ForgotPassword1Presenter(ForgotPassword1View FPview){
-        this.FPview = FPview;
-        this.FPmodel=new ForgotPassword1Model();
+
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ForgotPassword1Presenter implements Observable {
+
+    private ForgotPassword1View view;
+    private FirebaseAuth mAuth;
+    private List<Observer> observers = new ArrayList<>();
+
+    public ForgotPassword1Presenter(ForgotPassword1View view, FirebaseAuth mAuth) {
+        this.view = view;
+        this.mAuth = mAuth;
     }
 
-    public void ResetPassword1(String Email){
-        FPmodel.ResetPassword1(Email,ForgotPassword1Presenter.this);
-    }
     @Override
-    public void ResetPassword1Success(){
-        FPview.showPasswordResetSuccess();
-    }
-    public void ResetPassword1Failed(String Error) {
-        FPview.showPasswordResetFailed(Error);
+    public void addObserver(Observer observer) {
+        observers.add(observer);
     }
 
+    @Override
+    public void deleteObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(String notification) {
+        for (Observer observer : observers) {
+            observer.update(notification);
+        }
+    }
+
+    public void CheckForgotPassword(String Email) {
+        if (Email.isEmpty()) {
+            view.ShowEmptyError();
+            return;
+        }
+
+        mAuth.sendPasswordResetEmail(Email)
+                .addOnSuccessListener(unused -> {
+                    notifyObservers("success");
+                    view.BackToLogin();
+                })
+                .addOnFailureListener(e -> {
+                    notifyObservers("failed");
+                });
+    }
+
+    public void handleBack() {
+        view.BackToLogin();
+    }
 }

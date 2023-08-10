@@ -2,14 +2,11 @@ package com.course_project_autotrace.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.widget.Button;
 import android.widget.EditText;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.course_project_autotrace.BasicCarInfo.BasicCarInfo;
@@ -18,124 +15,93 @@ import com.course_project_autotrace.Hompage.HomeScreen;
 import com.course_project_autotrace.R;
 import com.course_project_autotrace.SignupMVP.Signup;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
+public class LoginScreen extends AppCompatActivity implements LoginView {
 
-//import org.w3c.dom.Text;
-
-public class LoginScreen extends AppCompatActivity {
-    private FirebaseAuth mFirebaseAuth; // for firebase autheniation
-    private EditText mEtEmail; //for edit text.
-    private EditText mEtPwd;
-    public EditText licenseNum;
+    private FirebaseAuth mFirebaseAuth;
+    private EditText mEtEmail, mEtPwd, licenseNum;
     private DatabaseReference referenceToCars;
-    private DataSnapshot car;
-    public String carName, model,info, insurance;
+    private LoginPresenter presenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        //for realtime database.
-        FirebaseDatabase.getInstance().getReference();
-        mEtEmail = findViewById(R.id.editEmail);
-        //diler put sigup button as text.
 
+        mFirebaseAuth = FirebaseAuth.getInstance(); //Database Auth
+        referenceToCars = FirebaseDatabase.getInstance().getReference().child("Cars"); //databaseref from dbof car.
+
+        mEtEmail = findViewById(R.id.editEmail);
         mEtPwd = findViewById(R.id.editPassword);
-        //TextView textViewForgotpwd = findViewById(R.id.textView..)
+        licenseNum = findViewById(R.id.edit_licensePlate);
         Button mBtnContinueLogin = findViewById(R.id.continueButton2);
-       // Initialize the backButton using findViewById
-        //private Button mBtnsignup; //since we using imagebutton on frontend , we use above.
         TextView textViewForgotpwd = findViewById(R.id.Forgotpwd);
         TextView textViewSignUp = findViewById(R.id.signup);
+        TextView continue2 = findViewById(R.id.continueBtn2);
 
+        presenter = new LoginPresenter(this);
+        //this is where Signup
         mBtnContinueLogin.setOnClickListener(v -> {
             String strEmail = mEtEmail.getText().toString();
             String strPwd = mEtPwd.getText().toString();
-
-            // Check if the email or password fields are empty
-            if(strEmail.isEmpty() || strPwd.isEmpty()){
-                Toast.makeText(LoginScreen.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
-                return;  // stop further execution if fields are empty
-            }
-
-            mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(LoginScreen.this, task -> {
-                if(task.isSuccessful()){
-                    Intent intent = new Intent(LoginScreen.this, HomeScreen.class);
-                    startActivity(intent);
-                    finish();
-                }else{
-                    Toast.makeText(LoginScreen.this, "Failed login", Toast.LENGTH_SHORT).show();
-                }
-            });
+            presenter.CheckLogin(strEmail, strPwd, mFirebaseAuth);
         });
 
-//        startActivity(new Intent(LoginScreen.this, Signup.class));
-        textViewForgotpwd.setOnClickListener(v-> {
+        textViewForgotpwd.setOnClickListener(v -> presenter.LinkForgotPassword());
+        textViewSignUp.setOnClickListener(v -> presenter.LinkSignUp());
 
-                //  code for Forgotpassword clicked
-                Intent intent = new Intent(LoginScreen.this, ForgotPassword1.class);
-                startActivity(intent);
-
-        });
-
-        textViewSignUp.setOnClickListener(v -> {
-            // Your existing code for textViewSignUp click
-            Intent intent = new Intent(LoginScreen.this, Signup.class);
-            startActivity(intent);
-        });
-
-        // Basic Car info code
-        referenceToCars = FirebaseDatabase.getInstance().getReference().child("Cars");
-        licenseNum = findViewById(R.id.edit_licensePlate);
-        Button continue2 = findViewById(R.id.continueBtn2);
         continue2.setOnClickListener(v -> {
-            final String enteredLicensePlate = licenseNum.getText().toString();
-
-            referenceToCars.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        if (Objects.equals(snapshot.getKey(), enteredLicensePlate)){
-                            car = snapshot;
-                        }
-                    }
-
-                    if (car == null) {
-                        Toast.makeText(LoginScreen.this, "Car does not exist in the database", Toast.LENGTH_LONG).show();
-                    }
-                    else{
-                        carName = String.valueOf(car.child("Name").getValue());
-                        model = String.valueOf(car.child("Model").getValue());
-                        info = String.valueOf(car.child("Insurance").getValue());
-                        insurance = String.valueOf(car.child("Insurance").getKey());
-                        // Start the BasicCarInfo activity after data has been loaded
-                        runOnUiThread(() -> {
-                            Intent intent = new Intent(LoginScreen.this, BasicCarInfo.class);
-                            intent.putExtra("carName", carName);
-                            intent.putExtra("model", model);
-                            intent.putExtra("info", info);
-                            intent.putExtra("insurance", insurance);
-                            startActivity(intent);
-                            finish();
-                        });
-                    }
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+            String enteredLicensePlate = licenseNum.getText().toString();
+            presenter.CheckBasicCarInfo(enteredLicensePlate, referenceToCars);
         });
+    }
+    public void ShowLoginSuccessful(){
+        Toast.makeText(this,"Login Success :)",Toast.LENGTH_SHORT).show();
+    }
+    public void ShowLoginError(){
+        Toast.makeText(this, "Login failed:(", Toast.LENGTH_SHORT).show();
     }
 
 
+    @Override
+
+    public void ShowCarNotFoundError(){
+        Toast.makeText(this,"Incomplete car Data or not in database ", Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override //to use MVP/CA we use it as overriding method.(listenr is already on above codes.)
+    public void ClickToHomeScreen() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+        finish();
+    }
+    public void ShowEmptyError(){
+        Toast.makeText(this,"Please fill all the fields",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void ClickToForgotPassword() {
+        Intent intent = new Intent(this, ForgotPassword1.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void ClickToSignUp() {
+        Intent intent = new Intent(this, Signup.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void ClickToBasicCarInfo(String carName, String model, String info, String insurance) {
+        Intent intent = new Intent(this, BasicCarInfo.class);
+        intent.putExtra("carName", carName);
+        intent.putExtra("model", model);
+        intent.putExtra("info", info);
+        intent.putExtra("insurance", insurance);
+        startActivity(intent);
+        finish();
+    }
 }

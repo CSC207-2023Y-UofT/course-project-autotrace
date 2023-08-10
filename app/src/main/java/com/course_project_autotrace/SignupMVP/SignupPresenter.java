@@ -1,24 +1,47 @@
 package com.course_project_autotrace.SignupMVP;
 
+import com.course_project_autotrace.Login.UserAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
-public class SignupPresenter implements SignupModel.SignupListener{
-    private SignupModel SuModel;
-    private SignupView SuView;
+public class SignupPresenter {
 
-    public void SignupUser(String Email,String Password,String name,String DriverLicense){
-        SuModel.SignupUser(Email,Password, name,DriverLicense,SignupPresenter.this);
-    }
-    public SignupPresenter(SignupView SuView){
-        this.SuView = SuView;
-        this.SuModel = new SignupModel();
-    }
-    @Override
-    public void SignupSuccess(){
-        SuView.showSignupSuccess();
-    }
-    @Override
-    public void SignupFailed(String Error){
-        SuView.showSignupFailed(Error);
+    private SignupView view;
 
+    public SignupPresenter(SignupView view) {
+        this.view = view;
     }
+
+    public void CheckSignup(String Email, String Password, String Name, FirebaseAuth Auth, DatabaseReference DBref) {
+        if (Email.isEmpty() || Password.isEmpty() || Name.isEmpty()) {
+            view.ShowEmptyFieldError();
+            return;
+        }
+
+        Auth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                FirebaseUser firebaseUser = Auth.getCurrentUser();
+                if (firebaseUser != null) {
+                    UserAccount account = new UserAccount();
+                    account.setIDToken(firebaseUser.getUid());
+                    account.setEmailId(Email);
+                    account.setPassword(Password);
+                    account.setFullName(Name);
+                    DBref.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
+                    view.ShowSignupSuccess();
+                    view.BackToLogin();
+                } else {
+                    view.ShowSignupFailed();
+                }
+            } else {
+                view.ShowSignupFailed();
+            }
+        });
+    }
+    public void LinkToLogin() {
+        view.BackToLogin();
+    }
+
+
 }
