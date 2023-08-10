@@ -18,7 +18,7 @@ import com.course_project_autotrace.R;
 
 
 public class RegisterNewVehicle extends AppCompatActivity implements RegisterNewVehicleInterface.View {
-    private RegisterNewVehiclePresenter carPresenter;
+    public RegisterNewVehiclePresenter carPresenter;
 
 
     @Override
@@ -65,6 +65,10 @@ public class RegisterNewVehicle extends AppCompatActivity implements RegisterNew
         Toast.makeText(this, "Car does not exist in the database", Toast.LENGTH_LONG).show();
 
     }
+    public void setPresenter(RegisterNewVehiclePresenter mockPresenter) {
+        this.carPresenter = mockPresenter;
+    }
+
 
 
 }
