@@ -2,13 +2,13 @@ package com.course_project_autotrace.UserProfile;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.strictmode.Violation;
 import android.widget.Toast;
 
 import com.course_project_autotrace.CarInformation.CarInfo;
 import com.course_project_autotrace.Hompage.HomeScreen;
 import com.course_project_autotrace.Login.LoginScreen;
 import com.course_project_autotrace.ProfileAccessories.EditProfileScreen;
+import com.course_project_autotrace.TrafficViolations.TrafficViolations;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -65,7 +65,7 @@ public class ProfilePresenter {
     }
 
     public void onViolationBtnClicked() {
-        Intent intent = new Intent(view, Violation.class);
+        Intent intent = new Intent(view, TrafficViolations.class);
         view.startActivity(intent);
     }
     public void onProfileBtnClicked() {
@@ -90,10 +90,5 @@ public class ProfilePresenter {
                 view.setUserName(errorMessage);
             }
         });
-    }
-
-
-    public void bind() {
-        view.setPresenter(this);
     }
 }
