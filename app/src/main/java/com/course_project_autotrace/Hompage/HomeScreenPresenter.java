@@ -21,7 +21,7 @@ public class HomeScreenPresenter {
     }
 
     public void onProfileBtnClicked() {
-        view.ToProfileScreen();
+        view.ToProfileView();
     }
 
     public void onCarInfoBtnClicked() {
