@@ -2,7 +2,7 @@ package com.course_project_autotrace.Hompage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.course_project_autotrace.CarInformation.CarInfo;
-import com.course_project_autotrace.UserProfile.ProfileScreen;
+import com.course_project_autotrace.UserProfile.ProfileView;
 import com.course_project_autotrace.RegisterNewVehicle.RegisterNewVehicle;
 import com.course_project_autotrace.TrafficViolations.TrafficViolations;
 import android.widget.ImageButton;
@@ -64,8 +64,8 @@ public class HomeScreen extends AppCompatActivity implements HomeScreenView {
     }
 
     @Override
-    public void ToProfileScreen() {
-        Intent intent = new Intent(HomeScreen.this, ProfileScreen.class);
+    public void ToProfileView() {
+        Intent intent = new Intent(HomeScreen.this, ProfileView.class);
         startActivity(intent);
     }
 

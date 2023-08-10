@@ -1,4 +1,4 @@
-package com.course_project_autotrace.UserProfile;
+package com.course_project_autotrace.ProfileAccessories;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 
 import com.course_project_autotrace.R;
+import com.course_project_autotrace.UserProfile.ProfileView;
 
 public class EditProfileScreen extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class EditProfileScreen extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile_screen);
         ImageButton backBtn = findViewById(R.id.BackBtn);
         backBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(EditProfileScreen.this, ProfileScreen.class);
+            Intent intent = new Intent(EditProfileScreen.this, ProfileView.class);
             startActivity(intent);
         });
     }

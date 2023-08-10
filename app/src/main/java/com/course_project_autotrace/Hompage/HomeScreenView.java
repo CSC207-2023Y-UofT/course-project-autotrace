@@ -5,7 +5,7 @@ public interface HomeScreenView {
     void ToHomeScreen();
     void ToCarInfo();
     void ToTrafficViolations();
-    void ToProfileScreen();
+    void ToProfileView();
 
     void ToRegisterNewVehicle();
 }

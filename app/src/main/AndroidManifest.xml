@@ -55,13 +55,13 @@
             android:name=".Login.LoginModel"
             android:exported="false" />
         <activity
-            android:name=".UserProfile.NotificationScreen"
+            android:name=".ProfileAccessories.NotificationScreen"
             android:exported="false" />
         <activity
-            android:name=".UserProfile.EditProfileScreen"
+            android:name=".ProfileAccessories.EditProfileScreen"
             android:exported="false" />
         <activity
-            android:name=".UserProfile.ProfileScreen"
+            android:name=".UserProfile.ProfileView"
             android:exported="false" />
         <activity
             android:name=".TrafficViolations.TrafficViolations"

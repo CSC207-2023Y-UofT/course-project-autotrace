@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.course_project_autotrace.Hompage.HomeScreen;
 import com.course_project_autotrace.R;
 import com.course_project_autotrace.TrafficViolations.TrafficViolations;
-import com.course_project_autotrace.UserProfile.ProfileScreen;
+import com.course_project_autotrace.UserProfile.ProfileView;
 
 public class CarInfo extends AppCompatActivity implements CarInfoView {
 
@@ -71,7 +71,7 @@ public class CarInfo extends AppCompatActivity implements CarInfoView {
 
     @Override
     public void ToProfile() {
-        Intent intent = new Intent(CarInfo.this, ProfileScreen.class);
+        Intent intent = new Intent(CarInfo.this, ProfileView.class);
         startActivity(intent);
     }
 

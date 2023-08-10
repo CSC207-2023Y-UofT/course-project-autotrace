@@ -1,4 +1,4 @@
-package com.course_project_autotrace.UserProfile;
+package com.course_project_autotrace.ProfileAccessories;
 
 import androidx.appcompat.app.AppCompatActivity;
 
