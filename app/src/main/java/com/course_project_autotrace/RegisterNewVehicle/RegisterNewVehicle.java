@@ -18,8 +18,8 @@ import com.course_project_autotrace.R;
  * Activity class that provides the functionality to register a new vehicle.
  */
 public class RegisterNewVehicle extends AppCompatActivity implements RegisterNewVehicleInterface.View {
+    public RegisterNewVehiclePresenter carPresenter;
 
-    private RegisterNewVehiclePresenter carPresenter;
 
     /**
      * Initializes the activity. Sets the layout, creates click listeners for back and register buttons, and initializes the presenter.
@@ -74,4 +74,8 @@ public class RegisterNewVehicle extends AppCompatActivity implements RegisterNew
     public void onCarNotExistInDB() {
         Toast.makeText(this, "Car does not exist in the database", Toast.LENGTH_LONG).show();
     }
+    public void setPresenter(RegisterNewVehiclePresenter mockPresenter) {
+        this.carPresenter = mockPresenter;
+    }
+
 }
