@@ -1,6 +1,5 @@
 package com.course_project_autotrace.RegisterNewVehicle;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -15,12 +14,18 @@ import com.course_project_autotrace.Hompage.HomeScreen;
 import com.course_project_autotrace.Login.LoginScreen;
 import com.course_project_autotrace.R;
 
-
-
+/**
+ * Activity class that provides the functionality to register a new vehicle.
+ */
 public class RegisterNewVehicle extends AppCompatActivity implements RegisterNewVehicleInterface.View {
+
     private RegisterNewVehiclePresenter carPresenter;
 
-
+    /**
+     * Initializes the activity. Sets the layout, creates click listeners for back and register buttons, and initializes the presenter.
+     *
+     * @param savedInstanceState Bundle object containing activity's previous state, if it exists.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +37,6 @@ public class RegisterNewVehicle extends AppCompatActivity implements RegisterNew
             startActivity(intent);
         });
 
-
         Button registerVehicleBtn = findViewById(R.id.RegisterBtn);
         EditText licensePlate = findViewById(R.id.LicensePlate);
 
@@ -41,11 +45,12 @@ public class RegisterNewVehicle extends AppCompatActivity implements RegisterNew
         registerVehicleBtn.setOnClickListener(v -> {
             String enteredLicensePlate = licensePlate.getText().toString();
             carPresenter.registerNewVehicle(enteredLicensePlate);
-
         });
     }
 
-
+    /**
+     * Displays a toast indicating the successful addition of a car and navigates to the home screen.
+     */
     @Override
     public void onCarAddSuccess(){
         Toast.makeText(this, "Car added successfully", Toast.LENGTH_LONG).show();
@@ -54,17 +59,19 @@ public class RegisterNewVehicle extends AppCompatActivity implements RegisterNew
         finish();
     }
 
+    /**
+     * Displays a toast indicating the failure to add a car.
+     */
     @Override
     public void onCarAddFailure(){
         Toast.makeText(this, "Failed to add the car", Toast.LENGTH_LONG).show();
-
     }
 
+    /**
+     * Displays a toast indicating that the car does not exist in the database.
+     */
     @Override
     public void onCarNotExistInDB() {
         Toast.makeText(this, "Car does not exist in the database", Toast.LENGTH_LONG).show();
-
     }
-
-
 }
