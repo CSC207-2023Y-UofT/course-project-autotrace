@@ -75,7 +75,7 @@ public class TrafficViolations extends AppCompatActivity implements TrafficViola
         LocationTextView = findViewById(R.id.descriptionTextView);
 
         // Navigation Button Handlers
-        findViewById(R.id.BackBtn).setOnClickListener(v -> navigateTo(TrafficViolations.class));
+        findViewById(R.id.BackBtn).setOnClickListener(v -> navigateTo(HomeScreen.class));
         findViewById(R.id.violationBtn).setOnClickListener(v -> navigateTo(TrafficViolations.class));
         findViewById(R.id.profileBTN).setOnClickListener(v -> navigateTo(ProfileView.class));
         findViewById(R.id.CarInfoBtn).setOnClickListener(v -> navigateTo(CarInfo.class));
