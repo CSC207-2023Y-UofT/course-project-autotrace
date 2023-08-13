@@ -11,10 +11,10 @@ import static org.mockito.Mockito.when;
 
 import com.course_project_autotrace.BasicCarInfo.BasicCarInfoPresenter;
 import com.course_project_autotrace.BasicCarInfo.BasicCarInfoView;
-import com.course_project_autotrace.BasicCarInfo.CarEntity;
+import com.course_project_autotrace.Entities.CarEntity;
 import com.course_project_autotrace.BasicCarInfo.FetchCarInfoUseCase;
 
-public class BasicCarInfoTest {
+public class BasicCarInfoModelTest {
 
     @Mock
     BasicCarInfoView view;

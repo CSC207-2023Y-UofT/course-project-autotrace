@@ -9,11 +9,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.course_project_autotrace.BasicCarInfo.BasicCarInfo;
-import com.course_project_autotrace.ForgotPassword.ForgotPassword1;
+import com.course_project_autotrace.BasicCarInfo.BasicCarInfoModel;
+import com.course_project_autotrace.ForgotPassword.ForgotPassword;
 import com.course_project_autotrace.Hompage.HomeScreen;
 import com.course_project_autotrace.R;
-import com.course_project_autotrace.SignupMVP.Signup;
+import com.course_project_autotrace.SignupMVP.SignupModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -42,7 +42,7 @@ public class LoginScreen extends AppCompatActivity implements LoginView {
         TextView continue2 = findViewById(R.id.continueBtn2);
 
         presenter = new LoginPresenter(this);
-        //this is where Signup
+        //this is where SignupModel
         mBtnContinueLogin.setOnClickListener(v -> {
             String strEmail = mEtEmail.getText().toString();
             String strPwd = mEtPwd.getText().toString();
@@ -84,19 +84,19 @@ public class LoginScreen extends AppCompatActivity implements LoginView {
 
     @Override
     public void ClickToForgotPassword() {
-        Intent intent = new Intent(this, ForgotPassword1.class);
+        Intent intent = new Intent(this, ForgotPassword.class);
         startActivity(intent);
     }
 
     @Override
     public void ClickToSignUp() {
-        Intent intent = new Intent(this, Signup.class);
+        Intent intent = new Intent(this, SignupModel.class);
         startActivity(intent);
     }
 
     @Override
     public void ClickToBasicCarInfo(String carName, String model, String info, String insurance) {
-        Intent intent = new Intent(this, BasicCarInfo.class);
+        Intent intent = new Intent(this, BasicCarInfoModel.class);
         intent.putExtra("carName", carName);
         intent.putExtra("model", model);
         intent.putExtra("info", info);

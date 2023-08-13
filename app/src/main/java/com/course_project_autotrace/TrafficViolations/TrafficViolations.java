@@ -49,7 +49,7 @@ public class TrafficViolations extends AppCompatActivity implements TrafficViola
         String userID = user.getUid();
 
         // Firebase Database References Initialization
-        referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccount");
+        referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccountEntity");
         referenceToViolations = FirebaseDatabase.getInstance().getReference().child("TrafficViolations");
 
         // Fetch user's driver license from Firebase and then fetch the traffic violations

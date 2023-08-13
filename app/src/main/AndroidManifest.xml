@@ -22,10 +22,10 @@
             android:name=".SignupMVP.SignupPresenter"
             android:exported="false" />
         <activity
-            android:name=".ForgotPassword.ForgotPassword1View"
+            android:name=".ForgotPassword.ForgotPasswordView"
             android:exported="false" />
         <activity
-            android:name=".ForgotPassword.ForgotPassword1Presenter"
+            android:name=".ForgotPassword.ForgotPasswordPresenter"
             android:exported="false" />
         <activity
             android:name=".ForgotPassword.ForgotPassword1Model"
@@ -70,7 +70,7 @@
             android:name=".CarInformation.CarInfo"
             android:exported="false" />
         <activity
-            android:name=".ForgotPassword.ForgotPassword1"
+            android:name=".ForgotPassword.ForgotPassword"
             android:exported="false" />
         <activity
             android:name=".SplashScreen.SplashScreenActivity"
@@ -90,7 +90,7 @@
             android:name=".Login.LoginScreen"
             android:exported="true" />
         <activity
-            android:name=".SignupMVP.Signup"
+            android:name=".SignupMVP.SignupModel"
             android:exported="false" />
         <activity
             android:name=".Hompage.HomeScreen"
@@ -100,7 +100,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".BasicCarInfo.BasicCarInfo"
+            android:name=".BasicCarInfo.BasicCarInfoModel"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class RegisterNewVehicleModel {
 
-    private final DatabaseReference referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccount");
+    private final DatabaseReference referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccountEntity");
     private final DatabaseReference referenceToCars = FirebaseDatabase.getInstance().getReference().child("Cars");
 
     /**

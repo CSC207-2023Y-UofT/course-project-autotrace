@@ -8,10 +8,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.course_project_autotrace.CarInformation.CarInfo;
-import com.course_project_autotrace.ForgotPassword.ForgotPassword1;
 import com.course_project_autotrace.Hompage.HomeScreen;
-import com.course_project_autotrace.Login.LoginScreen;
 import com.course_project_autotrace.R;
 
 /**

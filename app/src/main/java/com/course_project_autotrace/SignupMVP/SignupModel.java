@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Signup extends AppCompatActivity implements SignupView {
+public class SignupModel extends AppCompatActivity implements SignupView {
 
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabaseRef;
@@ -52,23 +52,23 @@ public class Signup extends AppCompatActivity implements SignupView {
 
     @Override
     public void BackToLogin() {
-        Intent intent = new Intent(Signup.this, LoginScreen.class);
+        Intent intent = new Intent(SignupModel.this, LoginScreen.class);
         startActivity(intent);
         finish();
     }
 
     @Override
     public void ShowSignupSuccess() {
-        Toast.makeText(Signup.this, "Signup Successful :)", Toast.LENGTH_SHORT).show();
+        Toast.makeText(SignupModel.this, "SignupModel Successful :)", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void ShowSignupFailed() {
-        Toast.makeText(Signup.this, "Signup Failed :(", Toast.LENGTH_SHORT).show();
+        Toast.makeText(SignupModel.this, "SignupModel Failed :(", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void ShowEmptyFieldError() {
-        Toast.makeText(Signup.this, "Please fill all fields :0", Toast.LENGTH_SHORT).show();
+        Toast.makeText(SignupModel.this, "Please fill all fields :0", Toast.LENGTH_SHORT).show();
     }
 }

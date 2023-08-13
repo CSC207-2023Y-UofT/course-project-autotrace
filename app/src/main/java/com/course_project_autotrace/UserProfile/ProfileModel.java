@@ -20,7 +20,7 @@ public class ProfileModel {
     }
 
     void fetchUserName(String userId, UserNameCallback callback) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UserAccount");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UserAccountEntity");
         databaseReference.child(userId).child("fullName").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

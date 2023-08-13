@@ -2,8 +2,10 @@ package com.course_project_autotrace.BasicCarInfo;
 
 import android.content.Intent;
 
+import com.course_project_autotrace.Entities.CarEntity;
+
 /**
- * Presenter class for the BasicCarInfo. It handles the business logic for
+ * Presenter class for the BasicCarInfoModel. It handles the business logic for
  * fetching and displaying basic car information, as well as navigation actions.
  */
 public class BasicCarInfoPresenter {
