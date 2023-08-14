@@ -2,6 +2,8 @@ package com.course_project_autotrace.BasicCarInfo;
 
 import android.content.Intent;
 
+import com.course_project_autotrace.Entities.CarEntity;
+
 /**
  * Use case class for fetching car information.
  */

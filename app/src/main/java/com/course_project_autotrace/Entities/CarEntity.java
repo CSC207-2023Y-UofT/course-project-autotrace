@@ -1,4 +1,4 @@
-package com.course_project_autotrace.BasicCarInfo;
+package com.course_project_autotrace.Entities;
 
 /**
  * Entity representing car-related data structures.

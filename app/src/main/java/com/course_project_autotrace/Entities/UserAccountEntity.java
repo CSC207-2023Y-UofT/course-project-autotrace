@@ -1,9 +1,9 @@
-package com.course_project_autotrace.Login;
+package com.course_project_autotrace.Entities;
 
 
-public class UserAccount {
+public class UserAccountEntity {
 
-    public UserAccount() {
+    public UserAccountEntity() {
     }
 
     public String getIDToken() {

@@ -15,7 +15,7 @@ public class CarInfoModel {
     }
     public void fetchCarInfo(OnDataFetched callback) {
         String userID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        DatabaseReference referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccount").child("Cars").child(userID);
+        DatabaseReference referenceToUsers = FirebaseDatabase.getInstance().getReference().child("UserAccountEntity").child("Cars").child(userID);
 
         referenceToUsers.addValueEventListener(new ValueEventListener() {
             @Override

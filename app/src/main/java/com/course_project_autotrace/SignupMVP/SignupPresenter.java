@@ -1,6 +1,6 @@
 package com.course_project_autotrace.SignupMVP;
 
-import com.course_project_autotrace.Login.UserAccount;
+import com.course_project_autotrace.Entities.UserAccountEntity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -23,12 +23,12 @@ public class SignupPresenter {
             if (task.isSuccessful()) {
                 FirebaseUser firebaseUser = Auth.getCurrentUser();
                 if (firebaseUser != null) {
-                    UserAccount account = new UserAccount();
+                    UserAccountEntity account = new UserAccountEntity();
                     account.setIDToken(firebaseUser.getUid());
                     account.setEmailId(Email);
                     account.setPassword(Password);
                     account.setFullName(Name);
-                    DBref.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
+                    DBref.child("UserAccountEntity").child(firebaseUser.getUid()).setValue(account);
                     view.ShowSignupSuccess();
                     view.BackToLogin();
                 } else {

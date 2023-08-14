@@ -1,6 +1,8 @@
 package com.course_project_autotrace.BasicCarInfo;
 
 import android.content.Intent;
+
+import com.course_project_autotrace.Entities.CarEntity;
 import com.course_project_autotrace.Login.LoginScreen;
 import com.course_project_autotrace.R;
 import android.os.Bundle;
@@ -13,7 +15,7 @@ import android.widget.TextView;
  * It retrieves the car details, displays them, and provides a way
  * to navigate back to the Login screen.
  */
-public class BasicCarInfo extends AppCompatActivity implements BasicCarInfoView {
+public class BasicCarInfoModel extends AppCompatActivity implements BasicCarInfoView {
 
     private BasicCarInfoPresenter BasicPresenter;
     private TextView infoBoxTextView, carNameTextview, modelYearTextView;
@@ -65,7 +67,7 @@ public class BasicCarInfo extends AppCompatActivity implements BasicCarInfoView 
      */
     @Override
     public void navigateToLoginScreen() {
-        Intent newIntent = new Intent(BasicCarInfo.this, LoginScreen.class);
+        Intent newIntent = new Intent(BasicCarInfoModel.this, LoginScreen.class);
         startActivity(newIntent);
     }
 }

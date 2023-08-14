@@ -1,5 +1,7 @@
 package com.course_project_autotrace.BasicCarInfo;
 
+import com.course_project_autotrace.Entities.CarEntity;
+
 /**
  * Interface representing the view operations in the Basic Car Info feature.
  * This allows for decoupling and provides a way to interact between the presenter and the view.

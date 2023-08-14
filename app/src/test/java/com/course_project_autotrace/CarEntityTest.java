@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import com.course_project_autotrace.BasicCarInfo.CarEntity;
+import com.course_project_autotrace.Entities.CarEntity;
 
 public class CarEntityTest {
 

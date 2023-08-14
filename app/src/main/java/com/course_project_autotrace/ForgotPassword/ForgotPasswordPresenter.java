@@ -5,13 +5,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForgotPassword1Presenter implements Observable {
+public class ForgotPasswordPresenter implements Observable {
 
-    private ForgotPassword1View view;
+    private ForgotPasswordView view;
     private FirebaseAuth mAuth;
     private List<Observer> observers = new ArrayList<>();
 
-    public ForgotPassword1Presenter(ForgotPassword1View view, FirebaseAuth mAuth) {
+    public ForgotPasswordPresenter(ForgotPasswordView view, FirebaseAuth mAuth) {
         this.view = view;
         this.mAuth = mAuth;
     }

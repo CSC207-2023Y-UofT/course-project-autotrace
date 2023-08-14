@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.course_project_autotrace.BasicCarInfo.CarEntity;
+import com.course_project_autotrace.Entities.CarEntity;
 import com.course_project_autotrace.BasicCarInfo.FetchCarInfoUseCase;
 
 public class FetchCarInfoUseCaseTest {
