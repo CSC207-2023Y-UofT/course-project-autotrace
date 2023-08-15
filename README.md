@@ -110,7 +110,7 @@ We aimed to create an app that works as a centralized system for displaying issu
 - Co-organized team meetings and assigned roles
 - Set Up Firebase Database
 - Worked on the frontend and backend of Access Basic Info, Sign Up,
-- Traffic Violations, HomeScreen, Register New Vehicle Screen
+  Traffic Violations, HomeScreen, Register New Vehicle Screen
 - Refactored and repackaged the source code
 - Worked on Readme
 - Worked on Figma Designs
