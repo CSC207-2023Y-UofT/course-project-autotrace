@@ -98,9 +98,6 @@ We aimed to create an app that works as a centralized system for displaying issu
 - Observer observers the presenter to see if ForgotPassword succeeded or failed
 - The update logic of update in observer is implemented in the model to follow CleanArchitecture
 
-### Dependency Injection Design Pattern
-- 
-
 
 ## Team Roles
 
